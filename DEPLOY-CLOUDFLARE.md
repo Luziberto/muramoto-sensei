@@ -1,6 +1,6 @@
 # Publicar no Cloudflare Pages — muramotosensei.com
 
-Site estático: não precisa de comando de build. A pasta publicada é a raiz do projeto (`index.html`, `mobile.html`, `images/`, etc.).
+Site estático: o build copia só HTML, imagens e `_redirects` / `_headers` para **`dist/`** (sem `node_modules`).
 
 ## 1. Domínio na Cloudflare
 
@@ -54,10 +54,12 @@ npm run deploy
 1. Suba o repositório no GitHub.
 2. Workers & Pages → **Create** → **Connect to Git**.
 3. Repositório `nihongo-working-holiday`, branch `main`.
-4. **Build settings:**
-   - Build command: *(vazio)*
-   - Build output directory: `/`
-5. Salve e faça deploy; depois adicione o domínio como no passo 3.
+4. **Build settings** (importante — não publique a raiz do repo):
+   - Framework preset: **None**
+   - Build command: `npm run build`
+   - Build output directory: **`dist`**
+   - **Não** use `npm run deploy` nem `wrangler pages deploy .` no build (isso envia `node_modules` e estoura o limite de 25 MiB).
+5. Salve e faça **Retry deployment**; depois adicione o domínio como no passo 3.
 
 ## Troubleshooting
 
@@ -67,3 +69,4 @@ npm run deploy
 | 522 / erro SSL | Em SSL/TLS, use **Full**; espere certificado emitir |
 | Só abre `.pages.dev` | Falta adicionar custom domain no projeto Pages |
 | Imagens quebradas | Confirme que a pasta `images/` foi incluída no deploy |
+| `Asset too large` / `workerd` 129 MiB | Output deve ser **`dist`**, build `npm run build`; não deployar `.` com `node_modules` |

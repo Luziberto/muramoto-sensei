@@ -43,3 +43,5 @@ npm run deploy
 ```
 
 Depois, no dashboard Cloudflare, associe `muramotosensei.com` ao projeto Pages **muramotosensei**.
+
+**Pages + GitHub:** build `npm run build`, output **`dist`** (veja [DEPLOY-CLOUDFLARE.md](./DEPLOY-CLOUDFLARE.md)).
