@@ -2,8 +2,8 @@
 
 | Rota | Arquivo | Título Stitch | Screen ID | Device |
 |------|---------|---------------|-----------|--------|
-| `/` (landing desktop) | `index.html` | Japonês para Working Holiday — Miuky Muramoto | `a79af29c71054b9fb9d1062cf1b3ed2a` | DESKTOP |
-| `/mobile.html` | `mobile.html` | Japonês para Working Holiday — Mobile Landing | `238c9c256d124187ad05da3e65aecb8a` | MOBILE |
+| `/` | `index.html` (responsivo) | Japonês para Working Holiday — Miuky Muramoto | `a79af29c71054b9fb9d1062cf1b3ed2a` | DESKTOP (+ mobile no mesmo HTML) |
+| — (referência) | `docs/stitch/mobile-reference.html` | Japonês para Working Holiday — Mobile Landing | `238c9c256d124187ad05da3e65aecb8a` | MOBILE |
 
 ## Links
 

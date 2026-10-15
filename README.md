@@ -5,6 +5,7 @@ Landing page para divulgação das aulas de japonês online (individuais ou em g
 ## Contato
 
 - WhatsApp: [+81 70-1625-2129](https://wa.me/817016252129)
+- LinkedIn: [miuky-serrano-3b0646412](https://www.linkedin.com/in/miuky-serrano-3b0646412/)
 
 ## Desenvolvimento local
 
@@ -15,10 +16,7 @@ npm run dev
 
 Abra `http://localhost:5173`.
 
-**Um único link para divulgar:** use sempre `index.html` (ou a raiz do site). Em telas até 767px o visitante é enviado automaticamente para `mobile.html`.
-
-- Forçar desktop no celular: `index.html?desktop=1` (a preferência fica salva na sessão).
-- Voltar ao mobile: `index.html?mobile=1` ou abrir `mobile.html` direto.
+**Um único link para divulgar:** use a raiz do site (`/` ou `index.html`). O layout é responsivo (desktop e celular no mesmo HTML).
 
 Alternativa sem Node:
 
