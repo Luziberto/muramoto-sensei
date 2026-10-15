@@ -61,10 +61,33 @@ npm run deploy
    - **Não** use `npm run deploy` nem `wrangler pages deploy .` no build (isso envia `node_modules` e estoura o limite de 25 MiB).
 5. Salve e faça **Retry deployment**; depois adicione o domínio como no passo 3.
 
+## Deploy automático (Git conectado no Cloudflare)
+
+Se no dashboard aparecem deploys em **`main`** com **“by API token”** e status **Failed**, o push no GitHub **está** disparando build — mas a etapa de build quebra.
+
+No projeto **muramoto-sensei** → **Settings** → **Build**:
+
+| Campo | Valor |
+|--------|--------|
+| Build command | `npm run build` |
+| Build output directory | `dist` |
+| Root directory | `/` (raiz do repo) |
+| Node version | 20 |
+
+O repositório usa só Node no build (`scripts/build.mjs`), **sem** instalar Wrangler no CI — isso evita falha do pacote `workerd` em ~20s.
+
+Depois: **Deployments** → **Retry deployment** no último commit.
+
+**“Empty commit message”** costuma ser só metadado do deploy via API; o que importa é o **log do build** (clique no deploy falho).
+
+Deploy **“Manually deployed”** não usa o Git: é upload manual e por isso pode estar no ar enquanto o automático falha.
+
 ## Troubleshooting
 
 | Problema | O que fazer |
 |----------|-------------|
+| Git push não atualiza o site | Veja se o último deploy em **Deployments** é do commit certo; se só há “Manually deployed”, configure o build acima ou rode `npm run deploy` |
+| Deploy `main` Failed em ~22s | Abra o log; confira output `dist` e comando `npm run build` |
 | Domínio não resolve | Confirme nameservers na Cloudflare; aguarde DNS |
 | 522 / erro SSL | Em SSL/TLS, use **Full**; espere certificado emitir |
 | Só abre `.pages.dev` | Falta adicionar custom domain no projeto Pages |

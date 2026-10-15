@@ -6,9 +6,6 @@
     "dev": "npx --yes serve . -l 5173",
     "preview": "npm run dev",
     "build": "node scripts/build.mjs",
-    "deploy": "npm run build && wrangler pages deploy dist --project-name=muramotosensei"
-  },
-  "devDependencies": {
-    "wrangler": "^4.0.0"
+    "deploy": "npm run build && npx --yes wrangler@4 pages deploy dist --project-name=muramoto-sensei"
   }
 }
