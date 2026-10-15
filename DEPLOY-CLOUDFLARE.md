@@ -33,15 +33,33 @@ Para publicar de novo depois de mudar arquivos:
 npm run deploy
 ```
 
-## 3. Ligar o domínio customizado
+## 3. Ligar o domínio customizado (Worker `muramoto-sensei`)
 
-1. Cloudflare Dashboard → **Workers & Pages** → projeto **muramotosensei**.
-2. **Custom domains** → **Set up a custom domain**.
-3. Adicione:
-   - `muramotosensei.com` (apex)
-   - `www.muramotosensei.com` (opcional; redirect www → apex em **Rules → Redirect Rules** no dashboard — `_redirects` no Worker não aceita URL absoluta)
-4. Se a zona DNS já está na Cloudflare, os registros `CNAME`/`AAAA` costumam ser criados automaticamente.
-5. SSL fica **Full** por padrão; em alguns minutos `https://muramotosensei.com` deve abrir.
+O apex **`muramotosensei.com`** usa registro DNS tipo **Worker** → `muramoto-sensei`. O site em `https://muramotosensei.com` deve responder **200**.
+
+### www — não use só CNAME para o apex
+
+**CNAME `www` → `muramotosensei.com`** costuma gerar **Error 522** no `www`, porque o apex não é um host HTTP normal — é rota de Worker.
+
+**Correção (escolha uma):**
+
+#### Opção A (recomendada): domínio customizado no Worker
+
+1. **Workers & Pages** → **muramoto-sensei** → **Settings** → **Domains & Routes** (ou **Custom domains**).
+2. **Add** → `www.muramotosensei.com`.
+3. A Cloudflare ajusta o DNS (pode substituir o CNAME manual).
+4. Opcional: **Rules** → **Redirect Rules** — se `www` abrir igual ao apex, crie regra **301** de `www.muramotosensei.com/*` → `https://muramotosensei.com/$1`.
+
+#### Opção B: só redirect (sem servir site no www)
+
+1. Em **DNS**, remova o CNAME `www` → apex se estiver com 522.
+2. Adicione `www` de novo pelo fluxo **Add custom domain** do Worker (passo A), **ou** peça à Cloudflare o registro que ela sugere para Workers.
+3. **Redirect Rule**: hostname `www.muramotosensei.com` → `https://muramotosensei.com/${uri.path}` (301).
+
+### Apex
+
+1. Confirme em DNS: `muramotosensei.com` → **Worker** `muramoto-sensei` (nuvem laranja).
+2. SSL/TLS → **Full**.
 
 ## 4. Conferir
 
@@ -96,6 +114,7 @@ Deploy **“Manually deployed”** não usa o Git: é upload manual e por isso p
 | `pages/projects/...` Authentication error | Projeto é **Worker** — use `npx --yes wrangler@4 deploy`, não `pages deploy` |
 | `Invalid _redirects` / Only relative URLs | Remova URLs absolutas de `_redirects`; use Redirect Rules no dashboard para www |
 | `Missing script: deploy:cloudflare` | Use `npx --yes wrangler@4 deploy` no painel ou `npm run deploy:cloudflare` após pull |
+| **522 só no www** | Não use CNAME `www` → apex com DNS Worker; adicione `www` em **Domains & Routes** do Worker `muramoto-sensei` |
 | Domínio não resolve | Confirme nameservers na Cloudflare; aguarde DNS |
 | 522 / erro SSL | Em SSL/TLS, use **Full**; espere certificado emitir |
 | Só abre `.pages.dev` | Falta adicionar custom domain no projeto Pages |
