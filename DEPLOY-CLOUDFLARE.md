@@ -61,51 +61,26 @@ npm run deploy
    - **Não** use `npm run deploy` nem `wrangler pages deploy .` no build (isso envia `node_modules` e estoura o limite de 25 MiB).
 5. Salve e faça **Retry deployment**; depois adicione o domínio como no passo 3.
 
-## Deploy automático no push (`main`)
+## Deploy automático (Git conectado no Cloudflare)
 
-### Por que o push não dispara nada?
+Se no dashboard aparecem deploys em **`main`** com **“by API token”** e status **Failed**, o push no GitHub **está** disparando build — mas a etapa de build quebra.
 
-Se no GitHub **não há webhook** do Cloudflare (repositório sem integração Git ativa), o `git push` **não avisa** a Cloudflare. Deploys “by API token” no dashboard podem ser **retry manual** ou outro fluxo — não necessariamente um hook em cada push.
-
-Use **uma** das opções abaixo.
-
-### Opção recomendada: GitHub Actions (este repo)
-
-Arquivo: `.github/workflows/cloudflare-deploy.yml` — roda em todo push na `main`.
-
-**Secrets** em GitHub → repositório **muramoto-sensei** → **Settings → Secrets and variables → Actions**:
-
-| Secret | Onde pegar |
-|--------|------------|
-| `CLOUDFLARE_API_TOKEN` | Cloudflare → My Profile → API Tokens → Create → template **Edit Cloudflare Workers** (ou token custom com **Account → Cloudflare Pages → Edit**) |
-| `CLOUDFLARE_ACCOUNT_ID` | Cloudflare dashboard → qualquer zona → URL `dash.cloudflare.com/<ACCOUNT_ID>/...` ou **Workers & Pages** → Account details |
-
-Depois de salvar os dois secrets, faça um push (ou **Actions → Deploy to Cloudflare → Run workflow**).
-
-### Opção B: Build no Cloudflare (como no seu dashboard)
-
-Projeto **Workers** `muramoto-sensei` com **Build** + **Deploy** separados (não é o formulário antigo só “output directory”).
-
-**1. Reconectar o Git**  
-Se aparecer *“This project is disconnected from your Git account”*, clique em **Manage** ao lado do repo e **reautorize** o GitHub na Cloudflare. Sem isso, **push não dispara** deploy.
-
-**2. Settings → Build** (valores corretos):
+No projeto **muramoto-sensei** → **Settings** → **Build**:
 
 | Campo | Valor |
 |--------|--------|
-| Production branch | `main` |
-| **Build command** | `npm run build` ← **não deixe “None”** |
-| **Deploy command** | `npx wrangler deploy` |
-| Root directory | `/` |
-| Disable builds | **desligado** (builds ativos) |
+| Build command | `npm run build` |
+| Build output directory | `dist` |
+| Root directory | `/` (raiz do repo) |
+| Node version | 20 |
 
-O `npm run build` gera a pasta `dist/`. O `wrangler.toml` aponta `[assets] directory = "./dist"` para o deploy.
+O repositório usa só Node no build (`scripts/build.mjs`), **sem** instalar Wrangler no CI — isso evita falha do pacote `workerd` em ~20s.
 
-**3. Retry** em **Deployments** após salvar.
+Depois: **Deployments** → **Retry deployment** no último commit.
 
-Erro típico com a config antiga: **Build command vazio** + só `wrangler deploy` → sobe Worker **sem** HTML novo (ou build falha).
+**“Empty commit message”** costuma ser só metadado do deploy via API; o que importa é o **log do build** (clique no deploy falho).
 
-Deploy **“Manually deployed”** não passa por esse pipeline Git.
+Deploy **“Manually deployed”** não usa o Git: é upload manual e por isso pode estar no ar enquanto o automático falha.
 
 ## Troubleshooting
 
