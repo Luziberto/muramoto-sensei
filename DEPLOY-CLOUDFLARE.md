@@ -39,7 +39,7 @@ npm run deploy
 2. **Custom domains** → **Set up a custom domain**.
 3. Adicione:
    - `muramotosensei.com` (apex)
-   - `www.muramotosensei.com` (opcional; o arquivo `_redirects` manda www → apex)
+   - `www.muramotosensei.com` (opcional; redirect www → apex em **Rules → Redirect Rules** no dashboard — `_redirects` no Worker não aceita URL absoluta)
 4. Se a zona DNS já está na Cloudflare, os registros `CNAME`/`AAAA` costumam ser criados automaticamente.
 5. SSL fica **Full** por padrão; em alguns minutos `https://muramotosensei.com` deve abrir.
 
@@ -94,6 +94,7 @@ Deploy **“Manually deployed”** não usa o Git: é upload manual e por isso p
 | Deploy `main` Failed em ~22s | Abra o log; confira output `dist` e comando `npm run build` |
 | `wrangler deploy` / Missing entry-point | Confirme `[assets] directory = "./dist"` no `wrangler.toml` e `npm run build` antes do deploy |
 | `pages/projects/...` Authentication error | Projeto é **Worker** — use `npx --yes wrangler@4 deploy`, não `pages deploy` |
+| `Invalid _redirects` / Only relative URLs | Remova URLs absolutas de `_redirects`; use Redirect Rules no dashboard para www |
 | `Missing script: deploy:cloudflare` | Use `npx --yes wrangler@4 deploy` no painel ou `npm run deploy:cloudflare` após pull |
 | Domínio não resolve | Confirme nameservers na Cloudflare; aguarde DNS |
 | 522 / erro SSL | Em SSL/TLS, use **Full**; espere certificado emitir |

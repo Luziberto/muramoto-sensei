@@ -1,2 +1,2 @@
-# www → domínio principal (Cloudflare Pages)
-https://www.muramotosensei.com/* https://muramotosensei.com/:splat 301
+# Redirects relativos apenas (Workers + assets).
+# www → apex: configure em Cloudflare → Rules → Redirect Rules (ou DNS + CNAME).
