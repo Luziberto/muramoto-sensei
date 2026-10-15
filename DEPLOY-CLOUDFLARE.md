@@ -70,15 +70,15 @@ No projeto **muramoto-sensei** → **Settings** → **Build**:
 | Campo | Valor |
 |--------|--------|
 | Build command | `npm run build` |
-| **Deploy command** | `npx --yes wrangler@4 pages deploy dist --project-name=muramoto-sensei` |
+| **Deploy command** | `npx --yes wrangler@4 deploy` |
 | Root directory | `/` (raiz do repo) |
 | Node version | 20 |
 
-**Não use** `npx wrangler deploy` — este site é **Pages** (HTML em `dist/`). Esse comando gera o erro *Missing entry-point to Worker script or to assets directory*.
+O projeto no dashboard é **Worker** `muramoto-sensei` (não Pages separado). O `wrangler.toml` define `[assets] directory = "./dist"` — por isso o deploy correto é **`wrangler deploy`**, não `wrangler pages deploy`.
 
-Use o comando **completo** no painel (não depende de script no `package.json`). Localmente: `npm run deploy:cloudflare`.
+**Erro `Authentication error` em `/pages/projects/muramoto-sensei`:** o painel estava usando `pages deploy` num projeto Worker; troque o deploy command para `npx --yes wrangler@4 deploy`.
 
-Se o formulário tiver só **Build output directory** (Pages clássico), use `dist` e **deixe o deploy command vazio** — a Cloudflare publica a pasta após o build.
+Localmente: `npm run deploy` (build + deploy).
 
 Depois: **Deployments** → **Retry deployment** no último commit.
 
@@ -92,8 +92,9 @@ Deploy **“Manually deployed”** não usa o Git: é upload manual e por isso p
 |----------|-------------|
 | Git push não atualiza o site | Veja se o último deploy em **Deployments** é do commit certo; se só há “Manually deployed”, configure o build acima ou rode `npm run deploy` |
 | Deploy `main` Failed em ~22s | Abra o log; confira output `dist` e comando `npm run build` |
-| `wrangler deploy` / Missing entry-point | Use `npx --yes wrangler@4 pages deploy dist --project-name=muramoto-sensei` |
-| `Missing script: deploy:cloudflare` | Commit `a80063e`+ no Git **ou** use o comando `npx` acima no painel (sem `npm run`) |
+| `wrangler deploy` / Missing entry-point | Confirme `[assets] directory = "./dist"` no `wrangler.toml` e `npm run build` antes do deploy |
+| `pages/projects/...` Authentication error | Projeto é **Worker** — use `npx --yes wrangler@4 deploy`, não `pages deploy` |
+| `Missing script: deploy:cloudflare` | Use `npx --yes wrangler@4 deploy` no painel ou `npm run deploy:cloudflare` após pull |
 | Domínio não resolve | Confirme nameservers na Cloudflare; aguarde DNS |
 | 522 / erro SSL | Em SSL/TLS, use **Full**; espere certificado emitir |
 | Só abre `.pages.dev` | Falta adicionar custom domain no projeto Pages |
