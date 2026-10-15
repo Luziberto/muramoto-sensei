@@ -65,19 +65,20 @@ npm run deploy
 
 Se no dashboard aparecem deploys em **`main`** com **“by API token”** e status **Failed**, o push no GitHub **está** disparando build — mas a etapa de build quebra.
 
-No projeto **muramoto-sensei** (Workers + assets estáticos) → **Settings** → **Build**:
+No projeto **muramoto-sensei** → **Settings** → **Build**:
 
 | Campo | Valor |
 |--------|--------|
-| Production branch | `main` |
-| **Build command** | `npm run build` |
-| **Deploy command** | `npx wrangler deploy` |
+| Build command | `npm run build` |
+| **Deploy command** | `npm run deploy:cloudflare` |
 | Root directory | `/` (raiz do repo) |
 | Node version | 20 |
 
-O `npm run build` gera `dist/`. O `wrangler.toml` define `[assets] directory = "./dist"` — **obrigatório** para o `wrangler deploy` não falhar com *Missing entry-point*.
+**Não use** `npx wrangler deploy` — este site é **Pages** (HTML em `dist/`). Esse comando gera o erro *Missing entry-point to Worker script or to assets directory*.
 
-O build no CI usa só Node (`scripts/build.mjs`); o Wrangler roda só na etapa de deploy (instalado pelo ambiente Cloudflare).
+O script `deploy:cloudflare` roda `wrangler pages deploy dist --project-name=muramoto-sensei` (Wrangler via `npx`, sem dependência no `package.json`).
+
+Se o formulário tiver só **Build output directory** (Pages clássico), use `dist` e **deixe o deploy command vazio** — a Cloudflare publica a pasta após o build.
 
 Depois: **Deployments** → **Retry deployment** no último commit.
 
@@ -90,8 +91,8 @@ Deploy **“Manually deployed”** não usa o Git: é upload manual e por isso p
 | Problema | O que fazer |
 |----------|-------------|
 | Git push não atualiza o site | Veja se o último deploy em **Deployments** é do commit certo; se só há “Manually deployed”, configure o build acima ou rode `npm run deploy` |
-| Deploy `main` Failed em ~22s | Abra o log; confira `npm run build` e se existe `dist/` antes do deploy |
-| `Missing entry-point to Worker script or to assets directory` | Deploy command deve ser `npx wrangler deploy` e o repo precisa de `[assets] directory = "./dist"` no `wrangler.toml` |
+| Deploy `main` Failed em ~22s | Abra o log; confira output `dist` e comando `npm run build` |
+| `wrangler deploy` / Missing entry-point | Troque o **Deploy command** para `npm run deploy:cloudflare` (não `wrangler deploy`) |
 | Domínio não resolve | Confirme nameservers na Cloudflare; aguarde DNS |
 | 522 / erro SSL | Em SSL/TLS, use **Full**; espere certificado emitir |
 | Só abre `.pages.dev` | Falta adicionar custom domain no projeto Pages |

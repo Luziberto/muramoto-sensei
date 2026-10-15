@@ -6,6 +6,7 @@
     "dev": "npx --yes serve . -l 5173",
     "preview": "npm run dev",
     "build": "node scripts/build.mjs",
-    "deploy": "npm run build && npx --yes wrangler@4 deploy"
+    "deploy": "npm run build && npm run deploy:cloudflare",
+    "deploy:cloudflare": "npx --yes wrangler@4 pages deploy dist --project-name=muramoto-sensei"
   }
 }
