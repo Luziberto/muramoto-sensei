@@ -135,11 +135,30 @@
     .ambient-glow:hover {
       box-shadow: 0 14px 28px -4px rgba(244, 166, 184, 0.3);
     }
-    .jlpt-seal {
+    .stat-cred-card {
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+      padding: 0.5rem 0.35rem 0.45rem;
+      border-radius: 0.75rem;
+      background: #ffffff;
+      border: 2px solid rgba(244, 166, 184, 0.75);
+      box-shadow: 0 8px 20px -6px rgba(244, 166, 184, 0.25);
+    }
+    .stat-cred-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #c0001e, #f4a6b8 45%, #455f87);
+    }
+    .cred-seal {
       position: relative;
       width: 3.25rem;
       height: 3.25rem;
-      margin: 0 auto 0.35rem;
+      margin: 0.35rem auto 0.3rem;
       border-radius: 50%;
       background: radial-gradient(circle at 30% 25%, #ffffff 0%, #fff8f5 45%, #f4a6b8 140%);
       border: 2px solid #c0001e;
@@ -149,20 +168,33 @@
       align-items: center;
       justify-content: center;
     }
-    .jlpt-seal-level {
+    .cred-seal--japan { border-color: #455f87; }
+    .cred-seal--solo { border-color: #8a4b5c; }
+    .cred-seal::after {
+      content: "";
+      position: absolute;
+      inset: 4px;
+      border-radius: 50%;
+      border: 1px dashed rgba(69, 95, 135, 0.35);
+      pointer-events: none;
+    }
+    .cred-seal-level {
       font-weight: 800;
-      font-size: 1rem;
+      font-size: 0.9rem;
       line-height: 1;
       color: #1e3a5f;
     }
-    .jlpt-seal-tag {
-      font-size: 0.45rem;
+    .cred-seal-tag {
+      font-size: 0.4rem;
       font-weight: 800;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.1em;
       color: #c0001e;
       line-height: 1;
+      text-transform: uppercase;
     }
-    .jlpt-seal-icon {
+    .cred-seal-tag--navy { color: #455f87; }
+    .cred-seal-tag--wine { color: #8a4b5c; }
+    .cred-seal-icon {
       position: absolute;
       top: -0.2rem;
       right: -0.25rem;
@@ -175,7 +207,9 @@
       align-items: center;
       justify-content: center;
     }
-    .jlpt-seal-icon .material-symbols-outlined {
+    .cred-seal-icon--primary { background: #8a4b5c; }
+    .cred-seal-icon--tertiary { background: #c0001e; }
+    .cred-seal-icon .material-symbols-outlined {
       font-size: 0.75rem;
       font-variation-settings: "FILL" 1, "wght" 600, "GRAD" 0, "opsz" 20;
     }
@@ -503,21 +537,29 @@
         </p>
 <!-- Stats Grid -->
 <div class="grid grid-cols-3 gap-2 pt-4 border-t border-outline-variant/20 text-center">
-<div class="p-2 rounded-lg bg-surface-container/50">
-<span class="block font-headline-sm text-headline-sm font-extrabold text-primary">20+</span>
-<span class="font-label-sm text-[11px] text-on-surface-variant">Mais de 20 anos no Japão</span>
+<div class="stat-cred-card">
+<div class="cred-seal cred-seal--japan" title="Mais de 20 anos no Japão">
+<span class="cred-seal-icon" aria-hidden="true"><span class="material-symbols-outlined">public</span></span>
+<span class="cred-seal-tag cred-seal-tag--navy">Japão</span>
+<span class="cred-seal-level">20+</span>
 </div>
-<div class="p-2 rounded-lg bg-surface-container-lowest border border-primary-container/60 relative pt-3">
-<div class="jlpt-seal" title="Certificação JLPT N2">
-<span class="jlpt-seal-icon" aria-hidden="true"><span class="material-symbols-outlined">verified</span></span>
-<span class="jlpt-seal-tag">JLPT</span>
-<span class="jlpt-seal-level">N2</span>
+<span class="font-label-sm text-[10px] text-on-surface-variant font-bold leading-tight block">Mais de 20 anos no Japão</span>
+</div>
+<div class="stat-cred-card">
+<div class="cred-seal" title="Certificação JLPT N2">
+<span class="cred-seal-icon cred-seal-icon--tertiary" aria-hidden="true"><span class="material-symbols-outlined">verified</span></span>
+<span class="cred-seal-tag">JLPT</span>
+<span class="cred-seal-level">N2</span>
 </div>
 <span class="font-label-sm text-[10px] text-on-surface-variant font-bold leading-tight block">Certificado JLPT N2</span>
 </div>
-<div class="p-2 rounded-lg bg-surface-container/50">
-<span class="block font-headline-sm text-headline-sm font-extrabold text-on-surface">100%</span>
-<span class="font-label-sm text-[11px] text-on-surface-variant">Aulas Individuais</span>
+<div class="stat-cred-card">
+<div class="cred-seal cred-seal--solo" title="Aulas individuais">
+<span class="cred-seal-icon cred-seal-icon--primary" aria-hidden="true"><span class="material-symbols-outlined">person</span></span>
+<span class="cred-seal-tag cred-seal-tag--wine">1-on-1</span>
+<span class="cred-seal-level">100%</span>
+</div>
+<span class="font-label-sm text-[10px] text-on-surface-variant font-bold leading-tight block">Aulas individuais</span>
 </div>
 </div>
 </div>

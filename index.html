@@ -171,7 +171,26 @@
       writing-mode: vertical-rl;
       text-orientation: upright;
     }
-    .jlpt-seal {
+    .stat-cred-card {
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+      background: #ffffff;
+      padding: 1rem;
+      border-radius: 1rem;
+      border: 2px solid rgba(244, 166, 184, 0.75);
+      box-shadow: 0 14px 34px -6px rgba(138, 75, 92, 0.08), 0 4px 14px -2px rgba(244, 166, 184, 0.16);
+    }
+    .stat-cred-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #c0001e, #f4a6b8 45%, #455f87);
+    }
+    .cred-seal {
       position: relative;
       width: 4.75rem;
       height: 4.75rem;
@@ -186,7 +205,15 @@
       justify-content: center;
       gap: 0.1rem;
     }
-    .jlpt-seal::after {
+    .cred-seal--japan {
+      border-color: #455f87;
+      box-shadow: 0 6px 16px -4px rgba(69, 95, 135, 0.2), inset 0 0 0 3px rgba(255, 255, 255, 0.65);
+    }
+    .cred-seal--solo {
+      border-color: #8a4b5c;
+      box-shadow: 0 6px 16px -4px rgba(138, 75, 92, 0.22), inset 0 0 0 3px rgba(255, 255, 255, 0.65);
+    }
+    .cred-seal::after {
       content: "";
       position: absolute;
       inset: 5px;
@@ -194,15 +221,18 @@
       border: 1px dashed rgba(69, 95, 135, 0.35);
       pointer-events: none;
     }
-    .jlpt-seal-level {
+    .cred-seal-level {
       font-family: "Plus Jakarta Sans", sans-serif;
       font-weight: 800;
-      font-size: 1.5rem;
+      font-size: 1.35rem;
       line-height: 1;
       color: #1e3a5f;
       letter-spacing: -0.02em;
     }
-    .jlpt-seal-tag {
+    .cred-seal-level--sm {
+      font-size: 1.15rem;
+    }
+    .cred-seal-tag {
       font-family: "Plus Jakarta Sans", sans-serif;
       font-size: 0.5rem;
       font-weight: 800;
@@ -211,7 +241,13 @@
       color: #c0001e;
       line-height: 1;
     }
-    .jlpt-seal-icon {
+    .cred-seal-tag--navy {
+      color: #455f87;
+    }
+    .cred-seal-tag--wine {
+      color: #8a4b5c;
+    }
+    .cred-seal-icon {
       position: absolute;
       top: -0.35rem;
       right: -0.35rem;
@@ -225,7 +261,13 @@
       justify-content: center;
       box-shadow: 0 2px 8px rgba(30, 58, 95, 0.25);
     }
-    .jlpt-seal-icon .material-symbols-outlined {
+    .cred-seal-icon--primary {
+      background: #8a4b5c;
+    }
+    .cred-seal-icon--tertiary {
+      background: #c0001e;
+    }
+    .cred-seal-icon .material-symbols-outlined {
       font-size: 1rem;
       font-variation-settings: "FILL" 1, "wght" 600, "GRAD" 0, "opsz" 20;
     }
@@ -694,23 +736,30 @@
             </p>
 <!-- Stats Counters Bento -->
 <div class="grid grid-cols-1 sm:grid-cols-3 gap-space-md w-full pt-space-md border-t border-outline-variant/40">
-<div class="bg-surface-container-lowest p-space-md rounded-DEFAULT border border-outline-variant/30 text-center">
-<p class="font-display text-display text-primary leading-none mb-1">20+</p>
+<div class="stat-cred-card">
+<div class="cred-seal cred-seal--japan" title="Mais de 20 anos vivendo no Japão">
+<span class="cred-seal-icon" aria-hidden="true"><span class="material-symbols-outlined">public</span></span>
+<span class="cred-seal-tag cred-seal-tag--navy">Japão</span>
+<span class="cred-seal-level">20+</span>
+</div>
 <p class="font-label-sm text-label-sm text-secondary font-bold">Mais de 20 anos no Japão</p>
 <p class="font-body-sm text-body-sm text-on-surface-variant text-xs mt-0.5">Experiência prática in loco</p>
 </div>
-<div class="bg-surface-container-lowest p-space-md rounded-DEFAULT border-2 border-primary-container/80 text-center relative overflow-hidden sakura-shadow">
-<div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-tertiary via-primary-container to-secondary"></div>
-<div class="jlpt-seal" title="Certificação oficial JLPT N2">
-<span class="jlpt-seal-icon" aria-hidden="true"><span class="material-symbols-outlined">verified</span></span>
-<span class="jlpt-seal-tag">JLPT</span>
-<span class="jlpt-seal-level">N2</span>
+<div class="stat-cred-card">
+<div class="cred-seal" title="Certificação oficial JLPT N2">
+<span class="cred-seal-icon cred-seal-icon--tertiary" aria-hidden="true"><span class="material-symbols-outlined">verified</span></span>
+<span class="cred-seal-tag">JLPT</span>
+<span class="cred-seal-level">N2</span>
 </div>
 <p class="font-label-sm text-label-sm text-secondary font-bold">Certificado JLPT N2</p>
 <p class="font-body-sm text-body-sm text-on-surface-variant text-xs mt-0.5">Japonês — nível intermediário-avançado</p>
 </div>
-<div class="bg-surface-container-lowest p-space-md rounded-DEFAULT border border-outline-variant/30 text-center">
-<p class="font-display text-display text-tertiary leading-none mb-1">100%</p>
+<div class="stat-cred-card">
+<div class="cred-seal cred-seal--solo" title="Aulas 100% individuais">
+<span class="cred-seal-icon cred-seal-icon--primary" aria-hidden="true"><span class="material-symbols-outlined">person</span></span>
+<span class="cred-seal-tag cred-seal-tag--wine">1-on-1</span>
+<span class="cred-seal-level cred-seal-level--sm">100%</span>
+</div>
 <p class="font-label-sm text-label-sm text-secondary font-bold">Aulas individuais</p>
 <p class="font-body-sm text-body-sm text-on-surface-variant text-xs mt-0.5">Acolhimento particular</p>
 </div>
