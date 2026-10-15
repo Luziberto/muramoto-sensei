@@ -82,28 +82,30 @@ Arquivo: `.github/workflows/cloudflare-deploy.yml` — roda em todo push na `mai
 
 Depois de salvar os dois secrets, faça um push (ou **Actions → Deploy to Cloudflare → Run workflow**).
 
-### Opção B: Git conectado no Cloudflare
+### Opção B: Build no Cloudflare (como no seu dashboard)
 
-## Deploy automático (Git conectado no Cloudflare)
+Projeto **Workers** `muramoto-sensei` com **Build** + **Deploy** separados (não é o formulário antigo só “output directory”).
 
-Se no dashboard aparecem deploys em **`main`** com **“by API token”** e status **Failed**, o push no GitHub **está** disparando build — mas a etapa de build quebra.
+**1. Reconectar o Git**  
+Se aparecer *“This project is disconnected from your Git account”*, clique em **Manage** ao lado do repo e **reautorize** o GitHub na Cloudflare. Sem isso, **push não dispara** deploy.
 
-No projeto **muramoto-sensei** → **Settings** → **Build**:
+**2. Settings → Build** (valores corretos):
 
 | Campo | Valor |
 |--------|--------|
-| Build command | `npm run build` |
-| Build output directory | `dist` |
-| Root directory | `/` (raiz do repo) |
-| Node version | 20 |
+| Production branch | `main` |
+| **Build command** | `npm run build` ← **não deixe “None”** |
+| **Deploy command** | `npx wrangler deploy` |
+| Root directory | `/` |
+| Disable builds | **desligado** (builds ativos) |
 
-O repositório usa só Node no build (`scripts/build.mjs`), **sem** instalar Wrangler no CI — isso evita falha do pacote `workerd` em ~20s.
+O `npm run build` gera a pasta `dist/`. O `wrangler.toml` aponta `[assets] directory = "./dist"` para o deploy.
 
-Depois: **Deployments** → **Retry deployment** no último commit.
+**3. Retry** em **Deployments** após salvar.
 
-**“Empty commit message”** costuma ser só metadado do deploy via API; o que importa é o **log do build** (clique no deploy falho).
+Erro típico com a config antiga: **Build command vazio** + só `wrangler deploy` → sobe Worker **sem** HTML novo (ou build falha).
 
-Deploy **“Manually deployed”** não usa o Git: é upload manual e por isso pode estar no ar enquanto o automático falha.
+Deploy **“Manually deployed”** não passa por esse pipeline Git.
 
 ## Troubleshooting
 
