@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "project": {
+    "title": "Nihongo Working Holiday — Miuky Muramoto",
+    "resource": "projects/12071605958678522652",
+    "id": "12071605958678522652"
+  },
+  "designSystem": {
+    "asset": "assets/5f56d0a17d174e16ae8dedd096712fbe",
+    "name": "Komorebi Brazilian-Japanese Bridge"
+  },
+  "locale": "pt-BR",
+  "tokens": {
+    "primary": "#f4a6b8",
+    "secondary": "#1e3a5f",
+    "canvas": "#fff8f5",
+    "fontHeadline": "Plus Jakarta Sans",
+    "fontBody": "Nunito Sans"
+  },
+  "app": {
+    "name": "Nihongo Working Holiday",
+    "framework": "static-html",
+    "pagesDir": ".",
+    "entry": "index.html"
+  },
+  "screenMap": ".cursor/skills/stitch-context/screen-map.md",
+  "exports": {
+    "dir": "docs/stitch",
+    "commit": true
+  }
+}

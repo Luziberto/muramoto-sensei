@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Japonês para Working Holiday — com Miuky Muramoto</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,300;0,6..12,400;0,6..12,600;0,6..12,700;1,6..12,400&amp;family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;family=Noto+Serif+JP:wght@700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "outline": "#847376",
+            "tertiary-fixed": "#ffdad7",
+            "on-primary-fixed": "#38091a",
+            "on-error-container": "#93000a",
+            "inverse-primary": "#ffb1c3",
+            "surface-tint": "#8a4b5c",
+            "on-surface-variant": "#524346",
+            "surface-variant": "#e8e1de",
+            "outline-variant": "#d6c1c5",
+            "on-secondary-fixed-variant": "#2d486d",
+            "surface-dim": "#dfd9d6",
+            "primary-fixed": "#ffd9e0",
+            "error-container": "#ffdad6",
+            "secondary-fixed-dim": "#adc8f5",
+            "inverse-on-surface": "#f6efec",
+            "error": "#ba1a1a",
+            "background": "#fff8f5",
+            "surface-container-low": "#f9f2ef",
+            "primary-fixed-dim": "#ffb1c3",
+            "on-surface": "#1d1b1a",
+            "on-primary-fixed-variant": "#6e3444",
+            "on-primary-container": "#733949",
+            "surface-container": "#f3ecea",
+            "tertiary-fixed-dim": "#ffb3ae",
+            "primary-container": "#f4a6b8",
+            "tertiary": "#c0001e",
+            "on-error": "#ffffff",
+            "on-tertiary-container": "#9b0016",
+            "secondary": "#455f87",
+            "tertiary-container": "#ffa39d",
+            "on-primary": "#ffffff",
+            "on-secondary-container": "#3e5980",
+            "surface-container-high": "#ede7e4",
+            "on-tertiary-fixed-variant": "#930014",
+            "surface": "#fff8f5",
+            "inverse-surface": "#33302e",
+            "surface-container-lowest": "#ffffff",
+            "secondary-fixed": "#d5e3ff",
+            "surface-container-highest": "#e8e1de",
+            "on-secondary-fixed": "#001c3b",
+            "on-background": "#1d1b1a",
+            "on-tertiary-fixed": "#410004",
+            "on-tertiary": "#ffffff",
+            "primary": "#8a4b5c",
+            "on-secondary": "#ffffff",
+            "secondary-container": "#b5d0fd",
+            "surface-bright": "#fff8f5"
+          },
+          "borderRadius": {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-sm": "0.5rem",
+            "space-xl": "2.5rem",
+            "space-2xl": "4rem",
+            "margin-mobile": "1rem",
+            "space-xs": "0.25rem",
+            "gutter-mobile": "1rem",
+            "gutter": "1.5rem",
+            "space-md": "1rem",
+            "space-lg": "1.5rem",
+            "space-3xl": "6rem",
+            "margin": "2rem"
+          },
+          "fontFamily": {
+            "display-mobile": ["Plus Jakarta Sans", "sans-serif"],
+            "headline-md": ["Plus Jakarta Sans", "sans-serif"],
+            "label-md": ["Plus Jakarta Sans", "sans-serif"],
+            "body-lg": ["Nunito Sans", "sans-serif"],
+            "body-md": ["Nunito Sans", "sans-serif"],
+            "title-lg": ["Plus Jakarta Sans", "sans-serif"],
+            "headline-sm": ["Plus Jakarta Sans", "sans-serif"],
+            "label-lg": ["Plus Jakarta Sans", "sans-serif"],
+            "headline-lg-mobile": ["Plus Jakarta Sans", "sans-serif"],
+            "label-sm": ["Plus Jakarta Sans", "sans-serif"],
+            "headline-lg": ["Plus Jakarta Sans", "sans-serif"],
+            "display": ["Plus Jakarta Sans", "sans-serif"],
+            "body-sm": ["Nunito Sans", "sans-serif"]
+          },
+          "fontSize": {
+            "display-mobile": ["38px", { "lineHeight": "46px", "letterSpacing": "-0.01em", "fontWeight": "800" }],
+            "headline-md": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.005em", "fontWeight": "700" }],
+            "label-md": ["14px", { "lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "title-lg": ["18px", { "lineHeight": "26px", "fontWeight": "600" }],
+            "headline-sm": ["22px", { "lineHeight": "30px", "fontWeight": "700" }],
+            "label-lg": ["16px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "700" }],
+            "headline-lg-mobile": ["28px", { "lineHeight": "36px", "letterSpacing": "0", "fontWeight": "700" }],
+            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "700" }],
+            "headline-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "display": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .kanji-stamp {
+      font-family: 'Noto Serif JP', serif;
+      writing-mode: vertical-rl;
+    }
+    .ambient-shadow {
+      box-shadow: 0 8px 24px -4px rgba(30, 58, 95, 0.06), 0 4px 12px -2px rgba(244, 166, 184, 0.15);
+    }
+    .ambient-glow:hover {
+      box-shadow: 0 14px 28px -4px rgba(244, 166, 184, 0.3);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface antialiased flex flex-col items-center min-h-screen selection:bg-primary-container selection:text-on-primary-container">
+<!-- Mobile Wrapper Frame: optimized for 390px viewport standard -->
+<div class="w-full max-w-[420px] bg-background min-h-screen relative flex flex-col pb-28 shadow-2xl">
+<!-- 1. TopAppBar (Shared Component JSON faithfully mapped) -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-gutter-mobile h-16 bg-surface/85 backdrop-blur-md shadow-sm border-b border-outline-variant/30">
+<div class="flex items-center gap-2">
+<button aria-label="Menu de Navegação" class="w-10 h-10 flex items-center justify-center rounded-full text-on-surface hover:bg-primary-container/20 active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[24px]">menu</span>
+</button>
+<span class="text-title-lg font-title-lg font-bold text-primary tracking-tight">
+          にほんご • Miuky
+        </span>
+</div>
+<a class="inline-flex items-center gap-1.5 px-3.5 py-1.5 bg-[#25D366] text-white rounded-full font-label-md text-label-md shadow-sm hover:brightness-105 active:scale-95 transition-all" href="https://wa.me/817016252129?text=Ol%C3%A1%20Sensei%20Miuky!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20as%20aulas%20de%20japon%C3%AAs" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[18px]">chat</span>
+<span>Falar</span>
+</a>
+</header>
+<!-- Spacer for fixed TopAppBar -->
+<div class="h-16 w-full"></div>
+<!-- 2. Hero Section Mobile -->
+<section class="px-margin-mobile pt-6 pb-8 flex flex-col relative overflow-hidden">
+<!-- Decorative Komorebi / Cherry blossom background accents -->
+<div class="absolute -top-10 -right-10 w-44 h-44 bg-primary-container/30 rounded-full blur-3xl pointer-events-none"></div>
+<div class="absolute top-48 -left-12 w-36 h-36 bg-secondary-container/25 rounded-full blur-2xl pointer-events-none"></div>
+<!-- Hero Badge -->
+<div class="self-start inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary-container/30 border border-primary-container/40 text-on-primary-container font-label-sm text-label-sm mb-4">
+<span>🌸 がんばろう</span>
+<span class="w-1 h-1 rounded-full bg-primary"></span>
+<span>Turmas Working Holiday &amp; Iniciantes</span>
+</div>
+<!-- Main Headline -->
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-secondary font-extrabold tracking-tight mb-3">
+        Japonês descomplicado com quem vive no Japão há 20 anos
+      </h1>
+<!-- Subtitle -->
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 leading-relaxed">
+        Uma ponte acolhedora para brasileiros rumo ao <strong class="font-bold text-secondary">Working Holiday</strong>, trabalho no Japão ou comunicação do dia a dia. Aprenda a falar com naturalidade, sem travas e sem decorebas acadêmicas.
+      </p>
+<!-- Teacher Quick Profile / Hanko Stamp Card -->
+<div class="bg-surface-container-lowest border border-outline-variant/40 rounded-lg p-4 ambient-shadow flex items-center justify-between mb-6">
+<div class="flex items-center gap-3.5">
+<div class="relative">
+<img class="w-14 h-14 rounded-full object-cover border-2 border-primary-container shadow-inner" data-alt="Close-up portrait of Teacher Miuky Muramoto, a welcoming Japanese-Brazilian educator smiling warmly, with natural daylight, subtle cherry blossom bokeh in background, navy and soft pink tones, conveying empathy and cultural connection." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5xMul2iCth9v5F3evd6lhuaYM3mkzUjHKsvWkR2DH0wtecnJmzZCdBlArcEn-w0pPHXFJ9CW_03opTSop0BFyja7VgaWohxzq55zfcq0_yH4oePshdmG5ai6e50RmnKbBvN9vv1wC8lf1cJovluRuQ8Xe4gfS3ZzcHVhKhgfJbEs0By-STm8AdZkOlJ2B5_VStziYn7MwnIey8lmjJlkrBSco0P9AeEECaJij88qFcnl6dsay8Aia4YcRbjmObB1bb9Ve4hMYfJs5"/>
+<span class="absolute -bottom-1 -right-1 text-xs px-1 bg-surface-container-lowest rounded-full border border-outline-variant/30 shadow-xs">🇧🇷🇯🇵</span>
+</div>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-title-lg text-title-lg font-bold text-on-surface">Miuky Muramoto</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Sensei Mentora • 20 anos de Japão</p>
+</div>
+</div>
+<!-- Red Hanko Stamp -->
+<div class="w-11 h-11 border-2 border-tertiary rounded-md flex items-center justify-center bg-tertiary-fixed/15 rotate-[-4deg] shadow-sm select-none" title="Carimbo Hanko tradicional: 深雪 (Miuky)">
+<span class="kanji-stamp text-tertiary font-bold text-[13px] leading-none">深雪</span>
+</div>
+</div>
+<!-- CTAs Button Group -->
+<div class="flex flex-col gap-3 mb-6">
+<a class="w-full py-4 px-6 bg-[#25D366] text-white rounded-full font-label-lg text-label-lg flex items-center justify-center gap-3 shadow-md hover:brightness-105 active:scale-[0.98] transition-all" href="https://wa.me/817016252129?text=Ol%C3%A1%20Sensei%20Miuky!%20Quero%20falar%20no%20WhatsApp%20sobre%20as%20aulas" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[22px]">chat</span>
+<span>Falar no WhatsApp (+81 70-1625-2129)</span>
+</a>
+<a class="w-full py-3.5 px-6 bg-surface-container-lowest border-2 border-secondary text-secondary rounded-full font-label-md text-label-md flex items-center justify-center gap-2 hover:bg-primary-container/15 active:scale-[0.98] transition-all" href="#jornada">
+<span>Agendar 1ª conversa sem compromisso</span>
+<span class="material-symbols-outlined text-[18px]">calendar_today</span>
+</a>
+</div>
+<!-- Micro-benefits Pills Grid -->
+<div class="grid grid-cols-2 gap-2">
+<div class="flex items-center gap-2 p-2.5 rounded-full bg-surface-container/60 border border-outline-variant/30">
+<span class="material-symbols-outlined text-primary text-[18px]">videocam</span>
+<span class="font-label-sm text-label-sm text-on-surface">100% Online</span>
+</div>
+<div class="flex items-center gap-2 p-2.5 rounded-full bg-surface-container/60 border border-outline-variant/30">
+<span class="material-symbols-outlined text-primary text-[18px]">tune</span>
+<span class="font-label-sm text-label-sm text-on-surface">Método Sob Medida</span>
+</div>
+<div class="flex items-center gap-2 p-2.5 rounded-full bg-surface-container/60 border border-outline-variant/30">
+<span class="material-symbols-outlined text-primary text-[18px]">record_voice_over</span>
+<span class="font-label-sm text-label-sm text-on-surface">Sem trava na fala</span>
+</div>
+<div class="flex items-center gap-2 p-2.5 rounded-full bg-surface-container/60 border border-outline-variant/30">
+<span class="material-symbols-outlined text-tertiary text-[18px]">flight_takeoff</span>
+<span class="font-label-sm text-label-sm text-on-surface">Foco Working Holiday</span>
+</div>
+</div>
+</section>
+<!-- 3. Section: Para quem são as aulas da Sensei? -->
+<section class="px-margin-mobile py-8 bg-surface-container-low/60 border-y border-outline-variant/20 flex flex-col">
+<div class="mb-5">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-primary font-bold">Diagnóstico Rápido</span>
+<h2 class="font-headline-sm text-headline-sm text-secondary font-bold mt-1">
+          Para quem são as aulas da Sensei?
+        </h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+          Respeitamos o seu momento atual de aprendizado sem julgamentos.
+        </p>
+</div>
+<div class="flex flex-col gap-4">
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest p-5 rounded-lg border border-outline-variant/30 ambient-shadow ambient-glow transition-all">
+<div class="flex items-start gap-3.5">
+<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center shrink-0 text-on-primary-container">
+<span class="material-symbols-outlined text-[22px]">egg_alt</span>
+</div>
+<div>
+<span class="inline-block px-2.5 py-0.5 rounded-full bg-surface-container text-on-surface-variant text-[11px] font-bold mb-1">Nível Zero</span>
+<h3 class="font-title-lg text-title-lg font-bold text-on-surface">Iniciante Puro</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1.5 leading-relaxed">
+                Aprenda a sonoridade correta dos kanas sem vícios de sotaque de português. Saia do zero dominando saudações e frases essenciais com segurança desde a primeira semana.
+              </p>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest p-5 rounded-lg border border-outline-variant/30 ambient-shadow ambient-glow transition-all">
+<div class="flex items-start gap-3.5">
+<div class="w-10 h-10 rounded-full bg-secondary-fixed flex items-center justify-center shrink-0 text-secondary">
+<span class="material-symbols-outlined text-[22px]">hearing</span>
+</div>
+<div>
+<span class="inline-block px-2.5 py-0.5 rounded-full bg-surface-container text-on-surface-variant text-[11px] font-bold mb-1">Já Estudou</span>
+<h3 class="font-title-lg text-title-lg font-bold text-on-surface">Trava na hora de falar?</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1.5 leading-relaxed">
+                Você sabe gramática no papel, mas paralisa quando um japonês fala rápido. Destravamos o ouvido nativo e eliminamos a necessidade de traduzir tudo mentalmente antes de responder.
+              </p>
+</div>
+</div>
+</div>
+<!-- Card 3: Especialidade Working Holiday -->
+<div class="bg-surface-container-lowest p-5 rounded-lg border-2 border-primary-container ambient-shadow relative overflow-hidden">
+<div class="absolute top-0 right-0 bg-primary text-white text-[11px] font-bold px-3 py-1 rounded-bl-lg flex items-center gap-1 shadow-xs">
+<span class="material-symbols-outlined text-[13px]">star</span>
+<span>Mais Buscado</span>
+</div>
+<div class="flex items-start gap-3.5 mt-1">
+<div class="w-10 h-10 rounded-full bg-tertiary-fixed flex items-center justify-center shrink-0 text-tertiary">
+<span class="material-symbols-outlined text-[22px]">work</span>
+</div>
+<div class="pr-6">
+<h3 class="font-title-lg text-title-lg font-bold text-on-surface">Especialidade Working Holiday</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1.5 leading-relaxed">
+                O treino definitivo para quem vai embarcar: simulações reais de entrevistas de emprego (<em class="text-secondary font-semibold not-italic">baito</em>), prefeitura (<em class="text-secondary font-semibold not-italic">kuyakusho</em>), abertura de conta em banco e contratos de aluguel.
+              </p>
+<div class="mt-3 flex flex-wrap gap-1.5">
+<span class="px-2 py-0.5 bg-primary-container/20 text-on-primary-container rounded-full text-[11px] font-semibold">Simulação de Entrevistas</span>
+<span class="px-2 py-0.5 bg-primary-container/20 text-on-primary-container rounded-full text-[11px] font-semibold">Burocracia Real</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 4. Section: O que você realmente aprende nas aulas -->
+<section class="px-margin-mobile py-8 flex flex-col">
+<div class="mb-5">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-primary font-bold">Currículo Prático</span>
+<h2 class="font-headline-sm text-headline-sm text-secondary font-bold mt-1">
+          O que você realmente aprende nas aulas
+        </h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+          Foco em sobrevivência urbana, autonomia e respeito à cultura japonesa.
+        </p>
+</div>
+<div class="flex flex-col gap-3.5">
+<!-- Practical Item 1 -->
+<div class="flex items-start gap-3 bg-surface-container-lowest p-4 rounded-lg border border-outline-variant/30 ambient-shadow">
+<div class="p-2 rounded-lg bg-surface-container text-secondary shrink-0">
+<span class="material-symbols-outlined text-[20px]">train</span>
+</div>
+<div>
+<h4 class="font-title-lg text-[16px] font-bold text-on-surface">1. Conversação em Situações Reais</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5 leading-snug">
+              Como pedir informações em estações JR, pedir remédios exatos em farmácias e customizar pedidos no Konbini sem medo de errar.
+            </p>
+</div>
+</div>
+<!-- Practical Item 2 -->
+<div class="flex items-start gap-3 bg-surface-container-lowest p-4 rounded-lg border border-outline-variant/30 ambient-shadow">
+<div class="p-2 rounded-lg bg-surface-container text-secondary shrink-0">
+<span class="material-symbols-outlined text-[20px]">apartment</span>
+</div>
+<div>
+<h4 class="font-title-lg text-[16px] font-bold text-on-surface">2. Japonês do Dia a Dia &amp; Moradia</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5 leading-snug">
+              Interpretar avisos do condomínio, regras de separação de lixo no bairro e notificações urgentes dos Correios do Japão.
+            </p>
+</div>
+</div>
+<!-- Practical Item 3 -->
+<div class="flex items-start gap-3 bg-surface-container-lowest p-4 rounded-lg border border-outline-variant/30 ambient-shadow">
+<div class="p-2 rounded-lg bg-surface-container text-secondary shrink-0">
+<span class="material-symbols-outlined text-[20px]">badge</span>
+</div>
+<div>
+<h4 class="font-title-lg text-[16px] font-bold text-on-surface">3. Japonês para Trabalho &amp; Baito</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5 leading-snug">
+              O Keigo (linguagem formal) estritamente necessário para atender clientes, cumprimentar colegas e entender ordens rápidas do chefe (<em class="not-italic text-secondary font-semibold">Tencho</em>).
+            </p>
+</div>
+</div>
+<!-- Practical Item 4 -->
+<div class="flex items-start gap-3 bg-surface-container-lowest p-4 rounded-lg border border-outline-variant/30 ambient-shadow">
+<div class="p-2 rounded-lg bg-surface-container text-secondary shrink-0">
+<span class="material-symbols-outlined text-[20px]">forum</span>
+</div>
+<div>
+<h4 class="font-title-lg text-[16px] font-bold text-on-surface">4. Amizades e Socialização</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5 leading-snug">
+              Gírias naturais, mensagens informais de LINE e noções de etiqueta social para fazer amigos japoneses sem cometer gafes culturais.
+            </p>
+</div>
+</div>
+<!-- Featured Pink Card: Anime & Cultura -->
+<div class="bg-gradient-to-br from-primary-fixed/40 to-surface-container-lowest p-5 rounded-lg border border-primary-container ambient-shadow">
+<div class="flex items-center gap-2 text-primary font-bold text-label-md mb-1.5">
+<span class="material-symbols-outlined text-[20px]">auto_awesome</span>
+<span>Destaque Exclusivo</span>
+</div>
+<h4 class="font-title-lg text-title-lg font-bold text-on-surface">Anime, Exercícios Vivos &amp; Cultura</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 leading-relaxed">
+            Nada de apostilas empoeiradas da década de 80. Analisamos cenas reais de filmes, mangás modernos, cardápios fotográficos de restaurantes e podcasts nativos para acelerar a fluência auditiva.
+          </p>
+</div>
+</div>
+</section>
+<!-- 5. Section: Como funciona a sua jornada -->
+<section class="px-margin-mobile py-8 bg-surface-container-low/50 border-t border-outline-variant/20 flex flex-col" id="jornada">
+<div class="mb-6">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-primary font-bold">Passo a Passo</span>
+<h2 class="font-headline-sm text-headline-sm text-secondary font-bold mt-1">
+          Como funciona a sua jornada
+        </h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+          Um caminho claro e transparente desde o primeiro 'Konnichiwa'.
+        </p>
+</div>
+<!-- Vertical Steps with connecting visual line -->
+<div class="relative pl-6 space-y-7 before:content-[''] before:absolute before:left-3 before:top-3 before:bottom-3 before:w-[2px] before:bg-outline-variant/40">
+<!-- Step 1 -->
+<div class="relative">
+<div class="absolute -left-6 top-0 w-6 h-6 rounded-full bg-primary text-white font-bold text-xs flex items-center justify-center ring-4 ring-background">
+            1
+          </div>
+<h3 class="font-title-lg text-title-lg font-bold text-on-surface">Conversa Diagnóstica Gratuita</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+            20 minutos online sem compromisso para conhecer seu objetivo (Working Holiday, intercâmbio ou trabalho) e avaliar seu nível de partida.
+          </p>
+</div>
+<!-- Step 2 -->
+<div class="relative">
+<div class="absolute -left-6 top-0 w-6 h-6 rounded-full bg-secondary text-white font-bold text-xs flex items-center justify-center ring-4 ring-background">
+            2
+          </div>
+<h3 class="font-title-lg text-title-lg font-bold text-on-surface">Grade Sob Medida</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+            A Sensei desenha um roteiro sob medida focado nas suas maiores urgências: fala imediata para entrevistas ou vocabulário de sobrevivência.
+          </p>
+</div>
+<!-- Step 3 -->
+<div class="relative">
+<div class="absolute -left-6 top-0 w-6 h-6 rounded-full bg-tertiary text-white font-bold text-xs flex items-center justify-center ring-4 ring-background">
+            3
+          </div>
+<h3 class="font-title-lg text-title-lg font-bold text-on-surface">Aulas Semanais + Suporte WhatsApp</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+            Encontros individuais ao vivo via Google Meet e canal direto no WhatsApp da Sensei para tirar dúvidas de áudio e correções durante a semana.
+          </p>
+</div>
+</div>
+<!-- Action Banner Callout -->
+<div class="mt-8 p-5 rounded-lg bg-surface-container-lowest border border-outline-variant/40 ambient-shadow text-center flex flex-col items-center">
+<span class="w-10 h-10 rounded-full bg-primary-container/40 flex items-center justify-center text-primary mb-2">
+<span class="material-symbols-outlined text-[22px]">calendar_month</span>
+</span>
+<h4 class="font-title-lg text-title-lg font-bold text-on-surface">Vamos conversar sobre a sua meta?</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 mb-4">
+          Reserve seu horário com a Miuky agora mesmo via mensagem rápida.
+        </p>
+<a class="w-full py-3.5 px-6 bg-[#25D366] text-white rounded-full font-label-md text-label-md flex items-center justify-center gap-2 shadow-sm hover:brightness-105 active:scale-95 transition-all" href="https://wa.me/817016252129?text=Ol%C3%A1%20Sensei%20Miuky,%20gostaria%20de%20agendar%20minha%20conversa%20diagn%C3%B3stica%20gratuita" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[18px]">chat</span>
+<span>Agendar no WhatsApp com a Sensei</span>
+</a>
+</div>
+</section>
+<!-- 6. Section: Sobre a Sensei Miuky -->
+<section class="px-margin-mobile py-8 flex flex-col">
+<div class="bg-surface-container-lowest border border-outline-variant/30 rounded-lg p-6 ambient-shadow flex flex-col">
+<div class="flex items-center gap-4 mb-4">
+<img class="w-20 h-20 rounded-full object-cover border-2 border-primary-container ambient-shadow shrink-0" data-alt="A portrait of Japanese-Brazilian teacher Miuky Muramoto in a bright, modern studio with Japanese minimalist architectural wood accents and a subtle sakura branch in a vase, wearing professional and warm pastel attire, smiling directly into the camera." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBuXthx7kTyKGBJfybKbbdMzjr5JWagiO7UV4qb5KAF7N_htaMb-6LPdaliWB0IRh11FcRvZjPaoOmu8XnHJg4YeXOKDEu6qKhtQhtDoC0X44KFPp6_4Q6PTZ9EoNyhkv6QhqAI-riPHn-AiYRJ7KCJl2aLqQ1_bqWwoba8yoN7rYrDsru70E6YIdPbE4hcjaSjYoED0m7LuRVWWkNcuZ_1N8C7SldhtQb7r3Fc3Kpd2htDD9-gGRAv7hPiYuEX7wQF6cZLvjN3Zix2"/>
+<div>
+<div class="text-xs font-bold text-primary">Konnichiwa! いらっしゃいませ!</div>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface leading-tight">Miuky Muramoto</h3>
+<span class="inline-block mt-1 px-2.5 py-0.5 rounded-full bg-primary-container/20 text-on-primary-container text-[11px] font-bold">
+              20 Anos no Japão 🇧🇷🇯🇵
+            </span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-3">
+          Quando cheguei ao Japão há duas décadas, senti na pele a angústia de saber fórmulas gramaticais mas travar na hora de pedir um prato ou alugar um quarto.
+        </p>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-5">
+          Compreendi que aprender japonês não é decorar listas intermináveis de kanji: é criar <strong class="text-secondary font-semibold">segurança emocional para se comunicar</strong>. Hoje, sou o canal que conduz centenas de brasileiros a viverem seus sonhos no Japão com dignidade e autonomia.
+        </p>
+<!-- Stats Grid -->
+<div class="grid grid-cols-3 gap-2 pt-4 border-t border-outline-variant/20 text-center">
+<div class="p-2 rounded-lg bg-surface-container/50">
+<span class="block font-headline-sm text-headline-sm font-extrabold text-primary">20+</span>
+<span class="font-label-sm text-[11px] text-on-surface-variant">Anos no Japão</span>
+</div>
+<div class="p-2 rounded-lg bg-surface-container/50">
+<span class="block font-headline-sm text-headline-sm font-extrabold text-secondary">100+</span>
+<span class="font-label-sm text-[11px] text-on-surface-variant">Alunos Destravados</span>
+</div>
+<div class="p-2 rounded-lg bg-surface-container/50">
+<span class="block font-headline-sm text-headline-sm font-extrabold text-on-surface">100%</span>
+<span class="font-label-sm text-[11px] text-on-surface-variant">Aulas Individuais</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 7. Section: FAQ (Perguntas Frequentes Accordion) -->
+<section class="px-margin-mobile py-8 bg-surface-container-low/50 border-t border-outline-variant/20 flex flex-col">
+<div class="mb-5">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-primary font-bold">Tire Suas Dúvidas</span>
+<h2 class="font-headline-sm text-headline-sm text-secondary font-bold mt-1">
+          Perguntas Frequentes
+        </h2>
+</div>
+<div class="flex flex-col gap-3" id="faq-container">
+<!-- FAQ 1 -->
+<div class="bg-surface-container-lowest border border-outline-variant/30 rounded-lg overflow-hidden ambient-shadow">
+<button class="faq-toggle w-full px-4 py-3.5 flex items-center justify-between text-left font-title-lg text-[15px] font-bold text-on-surface" type="button">
+<span>Preciso saber algo antes de começar?</span>
+<span class="material-symbols-outlined text-primary transition-transform duration-200">expand_more</span>
+</button>
+<div class="faq-content px-4 pb-4 hidden font-body-sm text-body-sm text-on-surface-variant">
+            Não! Se você nunca viu hiragana na vida ou não sabe falar nem 'arigatou', nós começamos exatamente do marco zero, com paciência e método focado nos sons reais.
+          </div>
+</div>
+<!-- FAQ 2 -->
+<div class="bg-surface-container-lowest border border-outline-variant/30 rounded-lg overflow-hidden ambient-shadow">
+<button class="faq-toggle w-full px-4 py-3.5 flex items-center justify-between text-left font-title-lg text-[15px] font-bold text-on-surface" type="button">
+<span>Quanto tempo para me virar no Japão?</span>
+<span class="material-symbols-outlined text-primary transition-transform duration-200">expand_more</span>
+</button>
+<div class="faq-content px-4 pb-4 hidden font-body-sm text-body-sm text-on-surface-variant">
+            Com nosso método focado no Working Holiday e dia a dia prático, em 8 a 12 semanas você já tem repertório para resolver rotinas em lojas de conveniência, restaurantes, estações de trem e saudações no trabalho.
+          </div>
+</div>
+<!-- FAQ 3 -->
+<div class="bg-surface-container-lowest border border-outline-variant/30 rounded-lg overflow-hidden ambient-shadow">
+<button class="faq-toggle w-full px-4 py-3.5 flex items-center justify-between text-left font-title-lg text-[15px] font-bold text-on-surface" type="button">
+<span>Como funcionam as aulas online e horários?</span>
+<span class="material-symbols-outlined text-primary transition-transform duration-200">expand_more</span>
+</button>
+<div class="faq-content px-4 pb-4 hidden font-body-sm text-body-sm text-on-surface-variant">
+            As aulas são 100% online, ao vivo e individuais via Google Meet. Como a Sensei reside no Japão (+12h fuso), temos opções de horários flexíveis de manhã ou à noite no Brasil que se ajustam perfeitamente à sua rotina.
+          </div>
+</div>
+<!-- FAQ 4 -->
+<div class="bg-surface-container-lowest border border-outline-variant/30 rounded-lg overflow-hidden ambient-shadow">
+<button class="faq-toggle w-full px-4 py-3.5 flex items-center justify-between text-left font-title-lg text-[15px] font-bold text-on-surface" type="button">
+<span>Serve para quem vai a trabalho ou turismo?</span>
+<span class="material-symbols-outlined text-primary transition-transform duration-200">expand_more</span>
+</button>
+<div class="faq-content px-4 pb-4 hidden font-body-sm text-body-sm text-on-surface-variant">
+            Sim! O programa é modulado: para quem vai a turismo intensivo, priorizamos vocabulário de restaurantes e compras; para quem vai a trabalho efetivo, focamos em etiqueta corporativa e Keigo prático.
+          </div>
+</div>
+</div>
+</section>
+<!-- 8. Final Conversion CTA Section -->
+<section class="px-margin-mobile py-10 flex flex-col text-center items-center relative overflow-hidden">
+<div class="w-14 h-14 rounded-full bg-primary-container/30 border border-primary-container/50 flex items-center justify-center text-primary mb-3">
+<span class="material-symbols-outlined text-[30px]">temple_buddhist</span>
+</div>
+<h2 class="font-headline-md text-headline-md font-extrabold text-secondary tracking-tight mb-2">
+        Pronto para começar sua jornada rumo ao Japão?
+      </h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 max-w-xs">
+        Dê o primeiro passo com quem conhece os dois mundos e vai caminhar lado a lado com você.
+      </p>
+<a class="w-full py-4 px-6 bg-[#25D366] text-white rounded-full font-label-lg text-label-lg flex items-center justify-center gap-3 shadow-lg hover:brightness-105 active:scale-[0.98] transition-all" href="https://wa.me/817016252129?text=Ol%C3%A1%20Miuky%20Sensei!%20Estou%20pronto%20para%20come%C3%A7ar%20minha%20jornada%20no%20japon%C3%AAs" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[24px]">chat</span>
+<span>Falar com Miuky Sensei no WhatsApp</span>
+</a>
+<span class="mt-3 font-body-sm text-[12px] text-on-surface-variant flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-[#25D366] inline-block animate-pulse"></span>
+        Resposta rápida direto pelo número oficial (+81 70-1625-2129)
+      </span>
+</section>
+<!-- 9. Footer Mobile -->
+<footer class="px-margin-mobile py-6 bg-surface-container border-t border-outline-variant/30 text-center flex flex-col items-center">
+<div class="flex items-center gap-2 mb-2">
+<span class="font-title-lg text-title-lg font-bold text-primary">にほんご • Miuky Sensei</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-3">
+        Mentoria &amp; Aulas de Japonês para Brasileiros no Japão e no Mundo.
+      </p>
+<div class="text-[12px] text-outline flex flex-col gap-1">
+<span>© 2025 Miuky Muramoto. Todos os direitos reservados.</span>
+<span>Tokyo / Nagoya • Japão 🇯🇵</span>
+</div>
+</footer>
+<!-- 10. BottomNavBar (Shared Components JSON execution) -->
+<!-- Docked full-width at bottom with exact labels: ["Início", "Metodologia", "WhatsApp"], icons: ["home", "school", "chat"] -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-gutter-mobile py-2 bg-surface/90 backdrop-blur-lg rounded-t-lg shadow-[0_-6px_20px_rgba(30,58,95,0.05)] border-t border-outline-variant/30">
+<!-- Início (Active navigation state) -->
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-5 py-1.5 transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">home</span>
+<span class="font-label-sm text-label-sm">Início</span>
+</a>
+<!-- Metodologia (Inactive navigation state) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1.5 hover:text-primary transition-colors" href="#jornada">
+<span class="material-symbols-outlined text-[20px]">school</span>
+<span class="font-label-sm text-label-sm">Metodologia</span>
+</a>
+<!-- WhatsApp (Direct action conversion highlight) -->
+<a class="flex flex-col items-center justify-center text-[#25D366] px-3 py-1.5 hover:brightness-110 active:scale-95 transition-all" href="https://wa.me/817016252129?text=Ol%C3%A1%20Sensei%20Miuky!%20Gostaria%20de%20conversar%20sobre%20as%20aulas" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[20px]">chat</span>
+<span class="font-label-sm text-label-sm font-bold">WhatsApp</span>
+</a>
+</nav>
+</div>
+<!-- Inline Script for Accordion Micro-interactions -->
+<script>
+    document.querySelectorAll('.faq-toggle').forEach(button => {
+      button.addEventListener('click', () => {
+        const content = button.nextElementSibling;
+        const icon = button.querySelector('.material-symbols-outlined');
+        const isHidden = content.classList.contains('hidden');
+
+        // Close all others for sleek single accordion feel
+        document.querySelectorAll('.faq-content').forEach(c => c.classList.add('hidden'));
+        document.querySelectorAll('.faq-toggle .material-symbols-outlined').forEach(i => i.style.transform = 'rotate(0deg)');
+
+        if (isHidden) {
+          content.classList.remove('hidden');
+          if (icon) icon.style.transform = 'rotate(180deg)';
+        }
+      });
+    });
+  </script>
+</body></html>

@@ -1,0 +1,13 @@
+{
+  "name": "nihongo-working-holiday",
+  "private": true,
+  "description": "Landing page — aulas de japonês com Miuky Muramoto",
+  "scripts": {
+    "dev": "npx --yes serve . -l 5173",
+    "preview": "npm run dev",
+    "deploy": "wrangler pages deploy . --project-name=muramotosensei"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
+}
