@@ -1,6 +1,6 @@
 # にほんご — Japonês para o seu Working Holiday
 
-Landing page para divulgação das aulas particulares de japonês online com **Miuky Muramoto** (20 anos vivendo no Japão).
+Landing page para divulgação das aulas particulares de japonês online com **Miuky Muramoto** (há mais de 20 anos vivendo no Japão).
 
 ## Contato
 
