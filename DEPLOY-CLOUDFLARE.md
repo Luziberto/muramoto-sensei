@@ -70,13 +70,13 @@ No projeto **muramoto-sensei** → **Settings** → **Build**:
 | Campo | Valor |
 |--------|--------|
 | Build command | `npm run build` |
-| **Deploy command** | `npm run deploy:cloudflare` |
+| **Deploy command** | `npx --yes wrangler@4 pages deploy dist --project-name=muramoto-sensei` |
 | Root directory | `/` (raiz do repo) |
 | Node version | 20 |
 
 **Não use** `npx wrangler deploy` — este site é **Pages** (HTML em `dist/`). Esse comando gera o erro *Missing entry-point to Worker script or to assets directory*.
 
-O script `deploy:cloudflare` roda `wrangler pages deploy dist --project-name=muramoto-sensei` (Wrangler via `npx`, sem dependência no `package.json`).
+Use o comando **completo** no painel (não depende de script no `package.json`). Localmente: `npm run deploy:cloudflare`.
 
 Se o formulário tiver só **Build output directory** (Pages clássico), use `dist` e **deixe o deploy command vazio** — a Cloudflare publica a pasta após o build.
 
@@ -92,7 +92,8 @@ Deploy **“Manually deployed”** não usa o Git: é upload manual e por isso p
 |----------|-------------|
 | Git push não atualiza o site | Veja se o último deploy em **Deployments** é do commit certo; se só há “Manually deployed”, configure o build acima ou rode `npm run deploy` |
 | Deploy `main` Failed em ~22s | Abra o log; confira output `dist` e comando `npm run build` |
-| `wrangler deploy` / Missing entry-point | Troque o **Deploy command** para `npm run deploy:cloudflare` (não `wrangler deploy`) |
+| `wrangler deploy` / Missing entry-point | Use `npx --yes wrangler@4 pages deploy dist --project-name=muramoto-sensei` |
+| `Missing script: deploy:cloudflare` | Commit `a80063e`+ no Git **ou** use o comando `npx` acima no painel (sem `npm run`) |
 | Domínio não resolve | Confirme nameservers na Cloudflare; aguarde DNS |
 | 522 / erro SSL | Em SSL/TLS, use **Full**; espere certificado emitir |
 | Só abre `.pages.dev` | Falta adicionar custom domain no projeto Pages |

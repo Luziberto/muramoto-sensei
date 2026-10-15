@@ -1,6 +1,3 @@
 name = "muramoto-sensei"
 compatibility_date = "2026-01-01"
-
-# Worker só com arquivos estáticos (build → dist/, deploy → wrangler deploy)
-[assets]
-directory = "./dist"
+pages_build_output_dir = "dist"
