@@ -171,6 +171,64 @@
       writing-mode: vertical-rl;
       text-orientation: upright;
     }
+    .jlpt-seal {
+      position: relative;
+      width: 4.75rem;
+      height: 4.75rem;
+      margin: 0 auto 0.625rem;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 25%, #ffffff 0%, #fff8f5 45%, #f4a6b8 140%);
+      border: 2.5px solid #c0001e;
+      box-shadow: 0 6px 16px -4px rgba(192, 0, 30, 0.18), inset 0 0 0 3px rgba(255, 255, 255, 0.65);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.1rem;
+    }
+    .jlpt-seal::after {
+      content: "";
+      position: absolute;
+      inset: 5px;
+      border-radius: 50%;
+      border: 1px dashed rgba(69, 95, 135, 0.35);
+      pointer-events: none;
+    }
+    .jlpt-seal-level {
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-weight: 800;
+      font-size: 1.5rem;
+      line-height: 1;
+      color: #1e3a5f;
+      letter-spacing: -0.02em;
+    }
+    .jlpt-seal-tag {
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: 0.5rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #c0001e;
+      line-height: 1;
+    }
+    .jlpt-seal-icon {
+      position: absolute;
+      top: -0.35rem;
+      right: -0.35rem;
+      width: 1.65rem;
+      height: 1.65rem;
+      border-radius: 50%;
+      background: #455f87;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 8px rgba(30, 58, 95, 0.25);
+    }
+    .jlpt-seal-icon .material-symbols-outlined {
+      font-size: 1rem;
+      font-variation-settings: "FILL" 1, "wght" 600, "GRAD" 0, "opsz" 20;
+    }
   </style>
 </head>
 <body class="bg-surface text-on-surface font-body-md text-body-md antialiased selection:bg-primary-container selection:text-on-primary-container pb-24 md:pb-0">
@@ -641,8 +699,13 @@
 <p class="font-label-sm text-label-sm text-secondary font-bold">Mais de 20 anos no Japão</p>
 <p class="font-body-sm text-body-sm text-on-surface-variant text-xs mt-0.5">Experiência prática in loco</p>
 </div>
-<div class="bg-surface-container-lowest p-space-md rounded-DEFAULT border border-outline-variant/30 text-center">
-<p class="font-display text-display text-secondary leading-none mb-1">N2</p>
+<div class="bg-surface-container-lowest p-space-md rounded-DEFAULT border-2 border-primary-container/80 text-center relative overflow-hidden sakura-shadow">
+<div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-tertiary via-primary-container to-secondary"></div>
+<div class="jlpt-seal" title="Certificação oficial JLPT N2">
+<span class="jlpt-seal-icon" aria-hidden="true"><span class="material-symbols-outlined">verified</span></span>
+<span class="jlpt-seal-tag">JLPT</span>
+<span class="jlpt-seal-level">N2</span>
+</div>
 <p class="font-label-sm text-label-sm text-secondary font-bold">Certificado JLPT N2</p>
 <p class="font-body-sm text-body-sm text-on-surface-variant text-xs mt-0.5">Japonês — nível intermediário-avançado</p>
 </div>
