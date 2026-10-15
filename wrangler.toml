@@ -1,6 +1,7 @@
 name = "muramoto-sensei"
+main = "worker/index.js"
 compatibility_date = "2026-01-01"
 
-# Worker com site estático (build → dist/, deploy → wrangler deploy)
 [assets]
 directory = "./dist"
+binding = "ASSETS"

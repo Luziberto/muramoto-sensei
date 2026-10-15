@@ -7,16 +7,24 @@
   var params = new URLSearchParams(window.location.search);
   if (params.has('desktop')) {
     try { sessionStorage.setItem('nihongo-prefer-desktop', '1'); } catch (e) {}
+    document.cookie = 'nihongo-prefer-desktop=1; path=/; max-age=2592000; samesite=lax';
+    return;
   }
   if (params.has('mobile')) {
     try { sessionStorage.removeItem('nihongo-prefer-desktop'); } catch (e) {}
+    document.cookie = 'nihongo-prefer-desktop=; path=/; max-age=0; samesite=lax';
   }
-  var preferDesktop = false;
-  try { preferDesktop = sessionStorage.getItem('nihongo-prefer-desktop') === '1'; } catch (e) {}
-  if (preferDesktop || params.has('desktop')) return;
+  var preferDesktop = params.has('desktop');
+  if (!preferDesktop) {
+    try { preferDesktop = sessionStorage.getItem('nihongo-prefer-desktop') === '1'; } catch (e) {}
+  }
+  if (!preferDesktop && document.cookie.indexOf('nihongo-prefer-desktop=1') !== -1) {
+    preferDesktop = true;
+  }
+  if (preferDesktop) return;
   var mq = window.matchMedia('(max-width: 767px)');
   if (mq.matches) {
-    var target = 'mobile.html';
+    var target = '/mobile.html';
     var q = params.toString();
     if (q) target += '?' + q;
     window.location.replace(target);
