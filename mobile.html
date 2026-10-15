@@ -225,6 +225,20 @@
       background: linear-gradient(90deg, #c0001e, #f4a6b8, #455f87);
       opacity: 0.85;
     }
+    #mobile-nav .mobile-drawer-panel {
+      transform: translateX(-105%);
+      transition: transform 0.32s cubic-bezier(0.32, 0.72, 0, 1);
+    }
+    #mobile-nav.is-open .mobile-drawer-panel {
+      transform: translateX(0);
+    }
+    #mobile-nav .mobile-drawer-backdrop {
+      opacity: 0;
+      transition: opacity 0.28s ease;
+    }
+    #mobile-nav.is-open .mobile-drawer-backdrop {
+      opacity: 1;
+    }
   </style>
 <style>
     body {
@@ -238,7 +252,7 @@
 <!-- 1. TopAppBar (Shared Component JSON faithfully mapped) -->
 <header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-gutter-mobile h-16 bg-surface/85 backdrop-blur-md shadow-sm border-b border-outline-variant/30">
 <div class="flex items-center gap-2">
-<button aria-label="Menu de Navegação" class="w-10 h-10 flex items-center justify-center rounded-full text-on-surface hover:bg-primary-container/20 active:scale-95 transition-all" type="button">
+<button aria-controls="mobile-nav" aria-expanded="false" aria-label="Menu de Navegação" class="w-10 h-10 flex items-center justify-center rounded-full text-on-surface border border-outline-variant/25 hover:bg-primary-container/20 active:scale-95 transition-all" id="btn-open-mobile-nav" type="button">
 <span class="material-symbols-outlined text-[24px]">menu</span>
 </button>
 <span class="text-title-lg font-title-lg font-bold text-primary tracking-tight">
@@ -576,7 +590,7 @@
 </div>
 </section>
 <!-- 7. Section: FAQ (Perguntas Frequentes Accordion) -->
-<section class="px-margin-mobile py-8 bg-surface-container-low/50 border-t border-outline-variant/20 flex flex-col">
+<section class="px-margin-mobile py-8 bg-surface-container-low/50 border-t border-outline-variant/20 flex flex-col" id="duvidas">
 <div class="mb-5">
 <span class="font-label-sm text-label-sm uppercase tracking-wider text-primary font-bold">Tire Suas Dúvidas</span>
 <h2 class="font-headline-sm text-headline-sm text-secondary font-bold mt-1">
@@ -706,33 +720,92 @@
     });
   </script>
 
-<div id="mobile-nav" class="fixed inset-0 z-[60] hidden" aria-hidden="true">
-<div class="absolute inset-0 bg-inverse-surface/40 backdrop-blur-sm" data-close-menu></div>
-<div class="absolute top-0 left-0 w-[min(100%,20rem)] h-full bg-surface-container-lowest shadow-xl p-6 flex flex-col gap-4">
-<button type="button" class="self-end w-10 h-10 rounded-full hover:bg-primary-container/20" data-close-menu aria-label="Fechar"><span class="material-symbols-outlined">close</span></button>
-<a class="font-label-lg text-secondary py-2" href="#para-quem">Para quem é</a>
-<a class="font-label-lg text-secondary py-2" href="#o-que-estudamos">O que estudamos</a>
-<a class="font-label-lg text-secondary py-2" href="#jornada">Como funciona</a>
-<a class="font-label-lg text-secondary py-2" href="#sobre-sensei">Sobre a Sensei</a>
-<a class="font-label-lg text-secondary py-2" href="#faq-container">Dúvidas</a>
-<a class="mt-4 w-full py-3 bg-[#25D366] text-white rounded-full text-center font-label-md" href="https://wa.me/817016252129?text=Ol%C3%A1%2C%20Miuky%21%20Vi%20o%20site%20e%20tenho%20interesse%20nas%20aulas%20de%20japon%C3%AAs.%20Pode%20me%20contar%20mais%3F">WhatsApp</a>
+<div aria-hidden="true" class="fixed inset-0 z-[60] pointer-events-none" id="mobile-nav">
+<div aria-hidden="true" class="mobile-drawer-backdrop absolute inset-0 bg-secondary/45 backdrop-blur-[3px]" data-close-menu></div>
+<aside aria-label="Navegação principal" class="mobile-drawer-panel absolute top-0 left-0 flex h-full w-[min(100%,21.5rem)] max-w-[92vw] flex-col bg-surface-container-lowest border-r border-outline-variant/40 shadow-[8px_0_32px_rgba(30,58,95,0.12)] overflow-hidden">
+<div class="absolute -top-16 -right-10 w-40 h-40 bg-primary-container/25 rounded-full blur-3xl pointer-events-none"></div>
+<div class="absolute bottom-24 -left-8 w-32 h-32 bg-tertiary-fixed/30 rounded-full blur-2xl pointer-events-none"></div>
+<header class="relative shrink-0 border-b border-outline-variant/25 bg-surface/80 backdrop-blur-sm">
+<div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-tertiary via-primary-container to-secondary"></div>
+<div class="flex items-center justify-between gap-3 px-5 pt-5 pb-4">
+<div class="flex items-center gap-2.5 min-w-0">
+<span class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary-container/35 border border-primary-container/50 text-base shadow-sm">🌸</span>
+<div class="min-w-0">
+<p class="font-label-sm text-[10px] uppercase tracking-wider text-primary font-bold">Navegação</p>
+<p class="font-title-lg text-[15px] font-bold text-secondary leading-tight truncate">にほんご • Miuky</p>
 </div>
+</div>
+<button aria-label="Fechar menu" class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-outline-variant/35 bg-surface-container-lowest text-on-surface hover:bg-primary-container/15 active:scale-95 transition-all" data-close-menu type="button">
+<span class="material-symbols-outlined text-[22px]">close</span>
+</button>
+</div>
+</header>
+<nav class="relative flex-1 overflow-y-auto px-4 py-4 flex flex-col gap-2.5">
+<a class="mobile-nav-link flex items-center gap-3 rounded-lg border border-outline-variant/30 bg-surface-container/50 p-3 ambient-shadow hover:bg-primary-container/12 active:scale-[0.99] transition-all" data-close-menu href="#para-quem">
+<span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary-container/30 text-primary"><span class="material-symbols-outlined text-[20px]">groups</span></span>
+<span class="font-title-lg text-[15px] font-bold text-secondary">Para quem é</span>
+<span class="material-symbols-outlined ml-auto text-[20px] text-outline-variant/80">chevron_right</span>
+</a>
+<a class="mobile-nav-link flex items-center gap-3 rounded-lg border border-outline-variant/30 bg-surface-container/50 p-3 ambient-shadow hover:bg-primary-container/12 active:scale-[0.99] transition-all" data-close-menu href="#o-que-estudamos">
+<span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary-container/30 text-primary"><span class="material-symbols-outlined text-[20px]">auto_stories</span></span>
+<span class="font-title-lg text-[15px] font-bold text-secondary">O que estudamos</span>
+<span class="material-symbols-outlined ml-auto text-[20px] text-outline-variant/80">chevron_right</span>
+</a>
+<a class="mobile-nav-link flex items-center gap-3 rounded-lg border border-outline-variant/30 bg-surface-container/50 p-3 ambient-shadow hover:bg-primary-container/12 active:scale-[0.99] transition-all" data-close-menu href="#jornada">
+<span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary-container/30 text-primary"><span class="material-symbols-outlined text-[20px]">route</span></span>
+<span class="font-title-lg text-[15px] font-bold text-secondary">Como funciona</span>
+<span class="material-symbols-outlined ml-auto text-[20px] text-outline-variant/80">chevron_right</span>
+</a>
+<a class="mobile-nav-link flex items-center gap-3 rounded-lg border border-outline-variant/30 bg-surface-container/50 p-3 ambient-shadow hover:bg-primary-container/12 active:scale-[0.99] transition-all" data-close-menu href="#sobre-sensei">
+<span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary-container/30 text-primary"><span class="material-symbols-outlined text-[20px]">face_6</span></span>
+<span class="font-title-lg text-[15px] font-bold text-secondary">Sobre a Sensei</span>
+<span class="material-symbols-outlined ml-auto text-[20px] text-outline-variant/80">chevron_right</span>
+</a>
+<a class="mobile-nav-link flex items-center gap-3 rounded-lg border border-outline-variant/30 bg-surface-container/50 p-3 ambient-shadow hover:bg-primary-container/12 active:scale-[0.99] transition-all" data-close-menu href="#duvidas">
+<span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary-container/30 text-primary"><span class="material-symbols-outlined text-[20px]">help</span></span>
+<span class="font-title-lg text-[15px] font-bold text-secondary">Dúvidas</span>
+<span class="material-symbols-outlined ml-auto text-[20px] text-outline-variant/80">chevron_right</span>
+</a>
+</nav>
+<div class="relative shrink-0 border-t border-outline-variant/25 bg-surface-container-low/80 px-4 py-4 backdrop-blur-sm">
+<p class="mb-3 text-center font-body-sm text-[11px] text-on-surface-variant leading-snug">Primeira conversa <strong class="text-secondary">sem compromisso</strong></p>
+<a class="flex w-full items-center justify-center gap-2.5 rounded-full bg-[#25D366] py-3.5 font-label-md text-label-md text-white shadow-md hover:brightness-105 active:scale-[0.98] transition-all" data-close-menu href="https://wa.me/817016252129?text=Ol%C3%A1%2C%20Miuky%21%20Vi%20o%20site%20e%20tenho%20interesse%20nas%20aulas%20de%20japon%C3%AAs.%20Pode%20me%20contar%20mais%3F" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">chat</span>
+<span>Falar no WhatsApp</span>
+</a>
+</div>
+</aside>
 </div>
 <script>
-document.querySelectorAll('[aria-label="Menu de Navegação"]').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const nav = document.getElementById('mobile-nav');
-    nav.classList.remove('hidden');
+(function () {
+  var nav = document.getElementById('mobile-nav');
+  var openBtn = document.getElementById('btn-open-mobile-nav');
+  if (!nav || !openBtn) return;
+
+  function openMenu() {
+    nav.classList.add('is-open');
+    nav.classList.remove('pointer-events-none');
     nav.setAttribute('aria-hidden', 'false');
-  });
-});
-document.querySelectorAll('[data-close-menu]').forEach(el => {
-  el.addEventListener('click', () => {
-    const nav = document.getElementById('mobile-nav');
-    nav.classList.add('hidden');
+    openBtn.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMenu() {
+    nav.classList.remove('is-open');
+    nav.classList.add('pointer-events-none');
     nav.setAttribute('aria-hidden', 'true');
+    openBtn.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+
+  openBtn.addEventListener('click', openMenu);
+  document.querySelectorAll('[data-close-menu]').forEach(function (el) {
+    el.addEventListener('click', closeMenu);
   });
-});
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && nav.classList.contains('is-open')) closeMenu();
+  });
+})();
 </script>
 
 </body></html>
