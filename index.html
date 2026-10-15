@@ -15,7 +15,7 @@
 <!-- Google Fonts: Plus Jakarta Sans & Nunito Sans -->
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,300..800;1,6..12,300..800&amp;family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,300..800;1,6..12,300..800&amp;family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&amp;family=Noto+Serif+JP:wght@700&amp;display=swap" rel="stylesheet"/>
 <!-- Material Symbols Outlined -->
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
@@ -143,6 +143,13 @@
       transform: translateY(-4px);
       box-shadow: 0 16px 32px -4px rgba(244, 166, 184, 0.32), 0 6px 16px -2px rgba(69, 95, 135, 0.08);
     }
+    .kanji-stamp {
+      font-family: "Noto Serif JP", serif;
+      writing-mode: vertical-rl;
+    }
+    .ambient-shadow {
+      box-shadow: 0 8px 24px -4px rgba(30, 58, 95, 0.06), 0 4px 12px -2px rgba(244, 166, 184, 0.15);
+    }
     .hanko-stamp {
       border: 2px solid #c0001e;
       color: #c0001e;
@@ -237,28 +244,28 @@
     #site-nav.is-open .site-drawer-backdrop { opacity: 1; }
   </style>
 </head>
-<body class="bg-surface text-on-surface font-body-md text-body-md antialiased selection:bg-primary-container selection:text-on-primary-container pb-24 md:pb-0">
+<body class="bg-surface text-on-surface font-body-md text-body-md antialiased selection:bg-primary-container selection:text-on-primary-container pb-24 lg:pb-0">
 <!-- 1. STICKY TOP APP BAR (Shared Components JSON Anchor) -->
 <header class="bg-surface/90 backdrop-blur-md sticky top-0 z-50 border-b border-outline-variant/40 shadow-sm">
 <div class="flex justify-between items-center w-full px-space-lg max-w-7xl mx-auto py-space-sm">
 <div class="flex items-center gap-2 min-w-0">
-<button aria-controls="site-nav" aria-expanded="false" aria-label="Abrir menu" class="md:hidden w-10 h-10 shrink-0 flex items-center justify-center rounded-full border border-outline-variant/30 text-on-surface hover:bg-primary-container/20" id="btn-open-site-nav" type="button">
+<button aria-controls="site-nav" aria-expanded="false" aria-label="Abrir menu" class="lg:hidden w-10 h-10 shrink-0 flex items-center justify-center rounded-full border border-outline-variant/30 text-on-surface hover:bg-primary-container/20" id="btn-open-site-nav" type="button">
 <span class="material-symbols-outlined text-[24px]">menu</span>
 </button>
 <a class="flex items-center gap-space-xs group min-w-0" href="#">
-<span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-primary-container text-on-primary-container text-sm font-bold shadow-xs group-hover:scale-105 transition-transform">
+<span class="hidden lg:inline-flex items-center justify-center w-8 h-8 rounded-full bg-primary-container text-on-primary-container text-sm font-bold shadow-xs group-hover:scale-105 transition-transform">
           🌸
         </span>
-<span class="font-headline-sm text-headline-sm font-bold text-primary tracking-tight hidden sm:inline">
+<span class="font-headline-sm text-headline-sm font-bold text-primary tracking-tight hidden lg:inline">
           にほんご • Japonês com Miuky Sensei
         </span>
-<span class="font-headline-sm text-headline-sm font-bold text-primary tracking-tight sm:hidden">
+<span class="font-headline-sm text-headline-sm font-bold text-primary tracking-tight lg:hidden">
           にほんご • Miuky
         </span>
 </a>
 </div>
 <!-- Desktop Navigation links -->
-<nav class="hidden md:flex items-center gap-space-lg">
+<nav class="hidden lg:flex items-center gap-space-lg">
 <a class="text-primary font-bold border-b-2 border-primary pb-1 transition-colors" href="#para-quem-e">Para quem é</a>
 <a class="text-on-surface-variant font-medium hover:text-primary transition-colors" href="#o-que-estudamos">O que estudamos</a>
 <a class="text-on-surface-variant font-medium hover:text-primary transition-colors" href="#como-funciona">Como funciona</a>
@@ -269,39 +276,74 @@
 <div class="flex items-center gap-space-sm">
 <a class="inline-flex items-center gap-2 bg-[#25D366] text-white font-label-md text-label-md px-space-md py-2.5 rounded-full shadow-md hover:bg-[#1ebe57] hover:scale-102 active:scale-98 transition-all" href="https://wa.me/817016252129?text=Ol%C3%A1%2C%20Miuky%21%20Vi%20o%20site%20e%20tenho%20interesse%20nas%20aulas%20de%20japon%C3%AAs.%20Pode%20me%20contar%20mais%3F" rel="noopener noreferrer" target="_blank">
 <span class="material-symbols-outlined text-[20px]" data-icon="chat" style="font-variation-settings: 'FILL' 1;">chat</span>
-<span class="hidden sm:inline">Falar no WhatsApp</span>
-<span class="sm:hidden">Falar</span>
+<span class="hidden lg:inline">Falar no WhatsApp</span>
+<span class="lg:hidden">Falar</span>
 </a>
 </div>
 </div>
 </header>
 <main>
 <!-- 2. HERO SECTION -->
-<section class="relative pt-space-2xl pb-space-3xl overflow-hidden bg-gradient-to-b from-surface via-surface-container-low to-surface">
+<section class="relative pt-4 pb-8 lg:pt-space-2xl lg:pb-space-3xl overflow-hidden bg-gradient-to-b from-surface via-surface-container-low to-surface">
 <!-- Decorative background blur circles -->
 <div class="absolute -top-12 -left-12 w-96 h-96 bg-primary-container/20 rounded-full blur-3xl pointer-events-none"></div>
 <div class="absolute top-1/2 -right-24 w-80 h-80 bg-secondary-fixed/30 rounded-full blur-3xl pointer-events-none"></div>
 <div class="max-w-7xl mx-auto px-space-lg relative z-10">
-<div class="lg:hidden flex flex-col items-center text-center">
-<div class="relative mb-4">
-<div aria-hidden="true" class="absolute -inset-2 rounded-full bg-gradient-to-br from-primary-container/45 via-tertiary-fixed/25 to-secondary-container/35 blur-lg"></div>
-<img alt="Miuky Muramoto, professora de japonês" class="relative w-48 h-48 rounded-full object-cover object-[center_22%] border-4 border-surface-container-lowest ring-2 ring-primary-container/75 sakura-shadow" src="images/hero.png"/>
-<span class="absolute bottom-1 right-1 text-sm px-1.5 py-1 bg-surface-container-lowest/95 rounded-full border border-outline-variant/40">🇧🇷🇯🇵</span>
+<div class="lg:hidden flex flex-col items-center text-center relative">
+<div class="absolute -top-6 -right-10 w-44 h-44 bg-primary-container/30 rounded-full blur-3xl pointer-events-none"></div>
+<div class="absolute top-32 -left-12 w-36 h-36 bg-secondary-container/25 rounded-full blur-2xl pointer-events-none"></div>
+<div class="flex flex-col items-center text-center mb-5 relative z-10">
+<div class="relative">
+<div aria-hidden="true" class="absolute -inset-2 rounded-full bg-gradient-to-br from-primary-container/45 via-tertiary-fixed/25 to-secondary-container/35 blur-lg opacity-90"></div>
+<img alt="Miuky Muramoto, professora de japonês" class="relative w-[12.75rem] h-[12.75rem] rounded-full object-cover object-[center_22%] border-4 border-surface-container-lowest ring-2 ring-primary-container/75 ambient-shadow" src="images/hero.png"/>
+<span class="absolute bottom-1 right-1 text-sm leading-none px-1.5 py-1 bg-surface-container-lowest/95 rounded-full border border-outline-variant/40 shadow-sm">🇧🇷🇯🇵</span>
 </div>
-<p class="font-title-lg text-title-lg font-bold text-on-surface">Miuky Muramoto</p>
-<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 mb-4">Sensei • há mais de 20 anos no Japão</p>
-<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-container/30 border border-primary-container/60 text-secondary mb-3">
-<span>🌸</span>
-<span class="font-label-sm text-label-sm">Individual ou em grupo</span>
+<div class="mt-3 flex items-center justify-center gap-2.5">
+<span class="font-title-lg text-title-lg font-bold text-on-surface">Miuky Muramoto</span>
+<div class="w-10 h-10 border-2 border-tertiary rounded-md flex items-center justify-center bg-tertiary-fixed/15 rotate-[-4deg] shadow-sm shrink-0" title="Carimbo Hanko: 深雪 (Miuky)">
+<span class="kanji-stamp text-tertiary font-bold text-[12px] leading-none">深雪</span>
 </div>
-<h1 class="font-display-mobile text-display-mobile text-secondary tracking-tight leading-tight mb-2">Japonês online, <span class="text-primary">leve e prático</span></h1>
-<p class="font-body-sm text-body-sm text-on-surface-variant mb-4 max-w-sm">Aulas ao vivo no seu nível — conversação, dia a dia, anime ou planos de trabalho e Working Holiday.</p>
-<div class="w-full flex flex-col gap-3">
-<a class="inline-flex items-center justify-center gap-3 bg-[#25D366] text-white font-label-lg text-label-lg px-6 py-3.5 rounded-full shadow-lg" href="https://wa.me/817016252129?text=Ol%C3%A1%2C%20Miuky%21%20Vi%20o%20site%20e%20tenho%20interesse%20nas%20aulas%20de%20japon%C3%AAs.%20Pode%20me%20contar%20mais%3F" rel="noopener noreferrer" target="_blank">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">chat</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 max-w-[18rem]">Sensei mentora • há mais de 20 anos no Japão</p>
+</div>
+<div class="self-center inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-container/30 border border-primary-container/40 text-on-primary-container font-label-sm text-[12px] mb-3 text-center relative z-10">
+<span>🌸 がんばろう</span>
+<span class="w-1 h-1 rounded-full bg-primary"></span>
+<span>Individual ou em grupo</span>
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-secondary font-extrabold tracking-tight mb-2 leading-[1.15] text-center relative z-10">Japonês online, <span class="text-primary">leve e prático</span></h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4 leading-relaxed text-center max-w-[20rem] mx-auto relative z-10">Aulas ao vivo no seu nível — conversação, dia a dia, anime ou planos de trabalho e Working Holiday.</p>
+<div class="mb-5 p-3.5 rounded-lg border border-tertiary/30 bg-tertiary-fixed/20 text-center w-full relative z-10">
+<p class="font-label-sm text-[11px] uppercase tracking-wider text-tertiary font-bold mb-0.5">Lançamento</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-snug">Valor inicial <strong>mais acessível</strong> — combinamos pacote e horário no WhatsApp, sem compromisso.</p>
+</div>
+<div class="flex flex-col gap-3 mb-6 w-full relative z-10">
+<a class="w-full py-4 px-6 bg-[#25D366] text-white rounded-full font-label-lg text-label-lg flex items-center justify-center gap-3 shadow-md" href="https://wa.me/817016252129?text=Ol%C3%A1%2C%20Miuky%21%20Vi%20o%20site%20e%20tenho%20interesse%20nas%20aulas%20de%20japon%C3%AAs.%20Pode%20me%20contar%20mais%3F" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">chat</span>
 <span>Falar no WhatsApp</span>
 </a>
-<a class="inline-flex items-center justify-center gap-2 border-2 border-secondary text-secondary font-label-md text-label-md px-6 py-3 rounded-full" href="#como-funciona">Agendar 1ª conversa</a>
+<a class="w-full py-3.5 px-6 bg-surface-container-lowest border-2 border-secondary text-secondary rounded-full font-label-md text-label-md flex items-center justify-center gap-2" href="#como-funciona">
+<span>Agendar 1ª conversa sem compromisso</span>
+<span class="material-symbols-outlined text-[18px]">calendar_today</span>
+</a>
+</div>
+<div class="grid grid-cols-2 gap-2 w-full relative z-10">
+<div class="flex items-center gap-2 p-2.5 rounded-full bg-surface-container/60 border border-outline-variant/30">
+<span class="material-symbols-outlined text-primary text-[18px]">videocam</span>
+<span class="font-label-sm text-label-sm text-on-surface">100% Online</span>
+</div>
+<div class="flex items-center gap-2 p-2.5 rounded-full bg-surface-container/60 border border-outline-variant/30">
+<span class="material-symbols-outlined text-primary text-[18px]">tune</span>
+<span class="font-label-sm text-label-sm text-on-surface">Método Sob Medida</span>
+</div>
+<div class="flex items-center gap-2 p-2.5 rounded-full bg-surface-container/60 border border-outline-variant/30">
+<span class="material-symbols-outlined text-primary text-[18px]">record_voice_over</span>
+<span class="font-label-sm text-label-sm text-on-surface">Sem trava na fala</span>
+</div>
+<div class="flex items-center gap-2 p-2.5 rounded-full bg-surface-container/60 border border-outline-variant/30">
+<span class="material-symbols-outlined text-tertiary text-[18px]">flight_takeoff</span>
+<span class="font-label-sm text-label-sm text-on-surface">Anime &amp; cultura</span>
+</div>
 </div>
 </div>
 <div class="hidden lg:grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
@@ -369,7 +411,7 @@
 </div>
 </section>
 <!-- Condição de lançamento (alinhado ao anúncio no Facebook) -->
-<section class="bg-tertiary-fixed/25 border-y border-tertiary/30 py-space-md">
+<section class="hidden lg:block bg-tertiary-fixed/25 border-y border-tertiary/30 py-space-md">
 <div class="max-w-7xl mx-auto px-space-lg flex flex-col md:flex-row items-center justify-between gap-space-md text-center md:text-left">
 <div class="max-w-3xl">
 <p class="font-label-sm text-label-sm uppercase tracking-wider text-tertiary font-bold">Condição de lançamento</p>
@@ -384,7 +426,7 @@
 </div>
 </section>
 <!-- 3. TRUST STRIP (Horizontal Banner) -->
-<section class="border-y border-outline-variant/40 bg-gradient-to-r from-primary-fixed/30 via-surface-container-lowest to-secondary-fixed/20 py-space-md">
+<section class="hidden lg:block border-y border-outline-variant/40 bg-gradient-to-r from-primary-fixed/30 via-surface-container-lowest to-secondary-fixed/20 py-space-md">
 <div class="max-w-7xl mx-auto px-space-lg">
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md">
 <div class="flex items-center gap-3 p-space-sm rounded-DEFAULT bg-surface-container-lowest/80 border border-outline-variant/30">
@@ -932,7 +974,7 @@
     });
   </script>
 
-<nav class="fixed bottom-0 left-0 w-full z-50 md:hidden flex justify-around items-center px-4 py-2 bg-surface/90 backdrop-blur-lg border-t border-outline-variant/30 shadow-[0_-6px_20px_rgba(30,58,95,0.05)]" aria-label="Navegação mobile">
+<nav class="fixed bottom-0 left-0 w-full z-50 lg:hidden flex justify-around items-center px-4 py-2 bg-surface/90 backdrop-blur-lg rounded-t-lg border-t border-outline-variant/30 shadow-[0_-6px_20px_rgba(30,58,95,0.05)]" aria-label="Navegação mobile">
 <a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1.5" href="#">
 <span class="material-symbols-outlined text-[20px]">home</span>
 <span class="font-label-sm text-label-sm">Início</span>
@@ -947,26 +989,33 @@
 </a>
 </nav>
 
-<div aria-hidden="true" class="fixed inset-0 z-[60] pointer-events-none md:hidden" id="site-nav">
+<div aria-hidden="true" class="fixed inset-0 z-[60] pointer-events-none lg:hidden" id="site-nav">
 <div class="site-drawer-backdrop absolute inset-0 bg-secondary/45 backdrop-blur-[3px]" data-close-nav></div>
-<aside aria-label="Navegação" class="site-drawer-panel absolute top-0 left-0 flex h-full w-[min(100%,21.5rem)] max-w-[92vw] flex-col bg-surface-container-lowest border-r border-outline-variant/40 overflow-hidden">
+<aside aria-label="Navegação principal" class="site-drawer-panel absolute top-0 left-0 flex h-full w-[min(100%,21.5rem)] max-w-[92vw] flex-col bg-surface-container-lowest border-r border-outline-variant/40 shadow-[8px_0_32px_rgba(30,58,95,0.12)] overflow-hidden">
+<div class="absolute -top-16 -right-10 w-40 h-40 bg-primary-container/25 rounded-full blur-3xl pointer-events-none"></div>
+<header class="relative shrink-0 border-b border-outline-variant/25 bg-surface/80">
 <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-tertiary via-primary-container to-secondary"></div>
-<header class="flex items-center justify-between gap-3 px-5 pt-5 pb-4 border-b border-outline-variant/25">
-<div class="flex items-center gap-2.5">
-<span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-primary-container/35">🌸</span>
-<p class="font-title-lg text-[15px] font-bold text-secondary">にほんご • Miuky</p>
+<div class="flex items-center justify-between gap-3 px-5 pt-5 pb-4">
+<div class="flex items-center gap-2.5 min-w-0">
+<span class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary-container/35 border border-primary-container/50">🌸</span>
+<div class="min-w-0">
+<p class="font-label-sm text-[10px] uppercase tracking-wider text-primary font-bold">Navegação</p>
+<p class="font-title-lg text-[15px] font-bold text-secondary leading-tight truncate">にほんご • Miuky</p>
 </div>
-<button aria-label="Fechar menu" class="h-10 w-10 rounded-full border border-outline-variant/35" data-close-nav type="button"><span class="material-symbols-outlined">close</span></button>
+</div>
+<button aria-label="Fechar menu" class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-outline-variant/35 bg-surface-container-lowest" data-close-nav type="button"><span class="material-symbols-outlined text-[22px]">close</span></button>
+</div>
 </header>
-<nav class="flex-1 overflow-y-auto px-4 py-4 flex flex-col gap-2.5">
-<a class="flex items-center gap-3 rounded-lg border border-outline-variant/30 bg-surface-container/50 p-3" data-close-nav href="#para-quem-e"><span class="font-title-lg text-[15px] font-bold text-secondary">Para quem é</span></a>
-<a class="flex items-center gap-3 rounded-lg border border-outline-variant/30 bg-surface-container/50 p-3" data-close-nav href="#o-que-estudamos"><span class="font-title-lg text-[15px] font-bold text-secondary">O que estudamos</span></a>
-<a class="flex items-center gap-3 rounded-lg border border-outline-variant/30 bg-surface-container/50 p-3" data-close-nav href="#como-funciona"><span class="font-title-lg text-[15px] font-bold text-secondary">Como funciona</span></a>
-<a class="flex items-center gap-3 rounded-lg border border-outline-variant/30 bg-surface-container/50 p-3" data-close-nav href="#sobre-a-sensei"><span class="font-title-lg text-[15px] font-bold text-secondary">Sobre a Sensei</span></a>
-<a class="flex items-center gap-3 rounded-lg border border-outline-variant/30 bg-surface-container/50 p-3" data-close-nav href="#duvidas"><span class="font-title-lg text-[15px] font-bold text-secondary">Dúvidas</span></a>
+<nav class="relative flex-1 overflow-y-auto px-4 py-4 flex flex-col gap-2.5">
+<a class="flex items-center gap-3 rounded-lg border border-outline-variant/30 bg-surface-container/50 p-3 ambient-shadow" data-close-nav href="#para-quem-e"><span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary-container/30 text-primary"><span class="material-symbols-outlined text-[20px]">groups</span></span><span class="font-title-lg text-[15px] font-bold text-secondary">Para quem é</span><span class="material-symbols-outlined ml-auto text-[20px] text-outline-variant/80">chevron_right</span></a>
+<a class="flex items-center gap-3 rounded-lg border border-outline-variant/30 bg-surface-container/50 p-3 ambient-shadow" data-close-nav href="#o-que-estudamos"><span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary-container/30 text-primary"><span class="material-symbols-outlined text-[20px]">auto_stories</span></span><span class="font-title-lg text-[15px] font-bold text-secondary">O que estudamos</span><span class="material-symbols-outlined ml-auto text-[20px] text-outline-variant/80">chevron_right</span></a>
+<a class="flex items-center gap-3 rounded-lg border border-outline-variant/30 bg-surface-container/50 p-3 ambient-shadow" data-close-nav href="#como-funciona"><span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary-container/30 text-primary"><span class="material-symbols-outlined text-[20px]">route</span></span><span class="font-title-lg text-[15px] font-bold text-secondary">Como funciona</span><span class="material-symbols-outlined ml-auto text-[20px] text-outline-variant/80">chevron_right</span></a>
+<a class="flex items-center gap-3 rounded-lg border border-outline-variant/30 bg-surface-container/50 p-3 ambient-shadow" data-close-nav href="#sobre-a-sensei"><span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary-container/30 text-primary"><span class="material-symbols-outlined text-[20px]">face_6</span></span><span class="font-title-lg text-[15px] font-bold text-secondary">Sobre a Sensei</span><span class="material-symbols-outlined ml-auto text-[20px] text-outline-variant/80">chevron_right</span></a>
+<a class="flex items-center gap-3 rounded-lg border border-outline-variant/30 bg-surface-container/50 p-3 ambient-shadow" data-close-nav href="#duvidas"><span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary-container/30 text-primary"><span class="material-symbols-outlined text-[20px]">help</span></span><span class="font-title-lg text-[15px] font-bold text-secondary">Dúvidas</span><span class="material-symbols-outlined ml-auto text-[20px] text-outline-variant/80">chevron_right</span></a>
 </nav>
-<div class="border-t border-outline-variant/25 px-4 py-4">
-<a class="flex w-full items-center justify-center gap-2 rounded-full bg-[#25D366] py-3.5 text-white font-label-md" data-close-nav href="https://wa.me/817016252129?text=Ol%C3%A1%2C%20Miuky%21%20Vi%20o%20site%20e%20tenho%20interesse%20nas%20aulas%20de%20japon%C3%AAs.%20Pode%20me%20contar%20mais%3F" rel="noopener noreferrer" target="_blank">Falar no WhatsApp</a>
+<div class="relative shrink-0 border-t border-outline-variant/25 bg-surface-container-low/80 px-4 py-4">
+<p class="mb-3 text-center font-body-sm text-[11px] text-on-surface-variant leading-snug">Primeira conversa <strong class="text-secondary">sem compromisso</strong></p>
+<a class="flex w-full items-center justify-center gap-2.5 rounded-full bg-[#25D366] py-3.5 font-label-md text-white shadow-md" data-close-nav href="https://wa.me/817016252129?text=Ol%C3%A1%2C%20Miuky%21%20Vi%20o%20site%20e%20tenho%20interesse%20nas%20aulas%20de%20japon%C3%AAs.%20Pode%20me%20contar%20mais%3F" rel="noopener noreferrer" target="_blank"><span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">chat</span><span>Falar no WhatsApp</span></a>
 </div>
 </aside>
 </div>
