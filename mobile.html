@@ -168,6 +168,22 @@
     .stat-seal-level--compact {
       font-size: 0.85rem;
     }
+    .stat-seal-level--dual {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      font-size: 0.95rem;
+      line-height: 1;
+    }
+    .stat-seal-level--dual .stat-seal-level-sub {
+      font-size: 0.38rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #455f87;
+      line-height: 1.05;
+    }
     .stat-seal-tag {
       font-size: 0.45rem;
       font-weight: 800;
@@ -237,10 +253,26 @@
 <!-- Spacer for fixed TopAppBar -->
 <div class="h-16 w-full"></div>
 <!-- 2. Hero Section Mobile -->
-<section class="px-margin-mobile pt-6 pb-8 flex flex-col relative overflow-hidden">
+<section class="px-margin-mobile pt-4 pb-8 flex flex-col relative overflow-hidden">
 <!-- Decorative Komorebi / Cherry blossom background accents -->
 <div class="absolute -top-10 -right-10 w-44 h-44 bg-primary-container/30 rounded-full blur-3xl pointer-events-none"></div>
 <div class="absolute top-48 -left-12 w-36 h-36 bg-secondary-container/25 rounded-full blur-2xl pointer-events-none"></div>
+<!-- Hero visual — rosto primeiro no mobile -->
+<div class="relative w-full mb-5 z-[1]">
+<div class="relative overflow-hidden rounded-xl border border-outline-variant/40 bg-surface-container-lowest ambient-shadow aspect-[5/6] max-h-[min(72vw,340px)]">
+<img alt="Miuky Muramoto, professora de japonês, sorrindo em ambiente acolhedor" class="w-full h-full object-cover object-top" src="images/hero.png"/>
+<div class="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-secondary/85 via-secondary/35 to-transparent pointer-events-none"></div>
+<div class="absolute bottom-3 left-3 right-3 flex items-end justify-between gap-2">
+<div>
+<p class="font-label-sm text-label-sm text-primary-container font-bold drop-shadow-sm">Miuky Muramoto</p>
+<p class="font-body-sm text-[11px] text-white/95 leading-tight">Sensei • há mais de 20 anos no Japão 🇧🇷🇯🇵</p>
+</div>
+<div class="w-10 h-10 border-2 border-primary-container/80 rounded-md flex items-center justify-center bg-tertiary-fixed/90 rotate-[-4deg] shadow-sm shrink-0" title="Carimbo Hanko: 深雪">
+<span class="kanji-stamp text-tertiary font-bold text-[12px] leading-none">深雪</span>
+</div>
+</div>
+</div>
+</div>
 <!-- Hero Badge -->
 <div class="self-start inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary-container/30 border border-primary-container/40 text-on-primary-container font-label-sm text-label-sm mb-4">
 <span>🌸 がんばろう</span>
@@ -260,25 +292,6 @@
 <p class="font-body-sm text-body-sm text-on-surface-variant">
           Valor inicial <strong>mais acessível</strong> para quem começar agora. Pacotes e horários na conversa pelo WhatsApp — sem compromisso.
         </p>
-</div>
-<!-- Teacher Quick Profile / Hanko Stamp Card -->
-<div class="bg-surface-container-lowest border border-outline-variant/40 rounded-lg p-4 ambient-shadow flex items-center justify-between mb-6">
-<div class="flex items-center gap-3.5">
-<div class="relative">
-<img class="w-14 h-14 rounded-full object-cover border-2 border-primary-container shadow-inner" data-alt="Close-up portrait of Teacher Miuky Muramoto, a welcoming Japanese-Brazilian educator smiling warmly, with natural daylight, subtle cherry blossom bokeh in background, navy and soft pink tones, conveying empathy and cultural connection." src="images/hero.png"/>
-<span class="absolute -bottom-1 -right-1 text-xs px-1 bg-surface-container-lowest rounded-full border border-outline-variant/30 shadow-xs">🇧🇷🇯🇵</span>
-</div>
-<div>
-<div class="flex items-center gap-1.5">
-<span class="font-title-lg text-title-lg font-bold text-on-surface">Miuky Muramoto</span>
-</div>
-<p class="font-body-sm text-body-sm text-on-surface-variant">Sensei Mentora • há mais de 20 anos no Japão</p>
-</div>
-</div>
-<!-- Red Hanko Stamp -->
-<div class="w-11 h-11 border-2 border-tertiary rounded-md flex items-center justify-center bg-tertiary-fixed/15 rotate-[-4deg] shadow-sm select-none" title="Carimbo Hanko tradicional: 深雪 (Miuky)">
-<span class="kanji-stamp text-tertiary font-bold text-[13px] leading-none">深雪</span>
-</div>
 </div>
 <!-- CTAs Button Group -->
 <div class="flex flex-col gap-3 mb-6">
@@ -553,7 +566,10 @@
 <div class="stat-seal" title="Aulas individuais ou em grupo">
 <span class="stat-seal-icon" aria-hidden="true"><span class="material-symbols-outlined">groups</span></span>
 <span class="stat-seal-tag">Aulas</span>
-<span class="stat-seal-level stat-seal-level--compact">1:1</span>
+<span class="stat-seal-level stat-seal-level--dual" aria-label="Individual ou em grupo">
+<span>1</span>
+<span class="stat-seal-level-sub">ou grupo</span>
+</span>
 </div>
 <span class="font-label-sm text-[10px] text-on-surface-variant font-bold leading-tight block">Individual ou grupo</span>
 </div>
