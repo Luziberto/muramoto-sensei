@@ -61,6 +61,29 @@ npm run deploy
    - **Não** use `npm run deploy` nem `wrangler pages deploy .` no build (isso envia `node_modules` e estoura o limite de 25 MiB).
 5. Salve e faça **Retry deployment**; depois adicione o domínio como no passo 3.
 
+## Deploy automático no push (`main`)
+
+### Por que o push não dispara nada?
+
+Se no GitHub **não há webhook** do Cloudflare (repositório sem integração Git ativa), o `git push` **não avisa** a Cloudflare. Deploys “by API token” no dashboard podem ser **retry manual** ou outro fluxo — não necessariamente um hook em cada push.
+
+Use **uma** das opções abaixo.
+
+### Opção recomendada: GitHub Actions (este repo)
+
+Arquivo: `.github/workflows/cloudflare-deploy.yml` — roda em todo push na `main`.
+
+**Secrets** em GitHub → repositório **muramoto-sensei** → **Settings → Secrets and variables → Actions**:
+
+| Secret | Onde pegar |
+|--------|------------|
+| `CLOUDFLARE_API_TOKEN` | Cloudflare → My Profile → API Tokens → Create → template **Edit Cloudflare Workers** (ou token custom com **Account → Cloudflare Pages → Edit**) |
+| `CLOUDFLARE_ACCOUNT_ID` | Cloudflare dashboard → qualquer zona → URL `dash.cloudflare.com/<ACCOUNT_ID>/...` ou **Workers & Pages** → Account details |
+
+Depois de salvar os dois secrets, faça um push (ou **Actions → Deploy to Cloudflare → Run workflow**).
+
+### Opção B: Git conectado no Cloudflare
+
 ## Deploy automático (Git conectado no Cloudflare)
 
 Se no dashboard aparecem deploys em **`main`** com **“by API token”** e status **Failed**, o push no GitHub **está** disparando build — mas a etapa de build quebra.
