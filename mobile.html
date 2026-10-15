@@ -5,9 +5,9 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <link rel="canonical" href="https://muramotosensei.com/"/>
 <meta property="og:url" content="https://muramotosensei.com/mobile.html"/>
-<meta name="description" content="Aulas particulares de japonês com Miuky Muramoto — sob medida, anime e cultura. Condição de lançamento. WhatsApp direto."/>
+<meta name="description" content="Aulas de japonês online com Miuky Muramoto — individuais ou em grupo. Sob medida, anime e cultura. Condição de lançamento. WhatsApp direto."/>
 <link rel="icon" href="images/hero.png" type="image/png"/>
-<title>Aulas de japonês online — Miuky Muramoto</title>
+<title>Aulas de japonês online — individuais ou em grupo — Miuky Muramoto</title>
 <!-- Material Symbols Outlined -->
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <!-- Google Fonts -->
@@ -135,30 +135,11 @@
     .ambient-glow:hover {
       box-shadow: 0 14px 28px -4px rgba(244, 166, 184, 0.3);
     }
-    .stat-cred-card {
-      position: relative;
-      overflow: hidden;
-      text-align: center;
-      padding: 0.5rem 0.35rem 0.45rem;
-      border-radius: 0.75rem;
-      background: #ffffff;
-      border: 2px solid rgba(244, 166, 184, 0.75);
-      box-shadow: 0 8px 20px -6px rgba(244, 166, 184, 0.25);
-    }
-    .stat-cred-card::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, #c0001e, #f4a6b8 45%, #455f87);
-    }
-    .cred-seal {
+    .stat-seal {
       position: relative;
       width: 3.25rem;
       height: 3.25rem;
-      margin: 0.35rem auto 0.3rem;
+      margin: 0 auto 0.35rem;
       border-radius: 50%;
       background: radial-gradient(circle at 30% 25%, #ffffff 0%, #fff8f5 45%, #f4a6b8 140%);
       border: 2px solid #c0001e;
@@ -167,10 +148,9 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      gap: 0.05rem;
     }
-    .cred-seal--japan { border-color: #455f87; }
-    .cred-seal--solo { border-color: #8a4b5c; }
-    .cred-seal::after {
+    .stat-seal::after {
       content: "";
       position: absolute;
       inset: 4px;
@@ -178,23 +158,25 @@
       border: 1px dashed rgba(69, 95, 135, 0.35);
       pointer-events: none;
     }
-    .cred-seal-level {
+    .stat-seal-level {
       font-weight: 800;
-      font-size: 0.9rem;
+      font-size: 1rem;
       line-height: 1;
       color: #1e3a5f;
+      letter-spacing: -0.02em;
     }
-    .cred-seal-tag {
-      font-size: 0.4rem;
+    .stat-seal-level--compact {
+      font-size: 0.85rem;
+    }
+    .stat-seal-tag {
+      font-size: 0.45rem;
       font-weight: 800;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
       color: #c0001e;
       line-height: 1;
-      text-transform: uppercase;
     }
-    .cred-seal-tag--navy { color: #455f87; }
-    .cred-seal-tag--wine { color: #8a4b5c; }
-    .cred-seal-icon {
+    .stat-seal-icon {
       position: absolute;
       top: -0.2rem;
       right: -0.25rem;
@@ -206,12 +188,26 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      box-shadow: 0 2px 6px rgba(30, 58, 95, 0.22);
     }
-    .cred-seal-icon--primary { background: #8a4b5c; }
-    .cred-seal-icon--tertiary { background: #c0001e; }
-    .cred-seal-icon .material-symbols-outlined {
+    .stat-seal-icon .material-symbols-outlined {
       font-size: 0.75rem;
       font-variation-settings: "FILL" 1, "wght" 600, "GRAD" 0, "opsz" 20;
+    }
+    .stat-card-mobile {
+      position: relative;
+      overflow: hidden;
+      padding-top: 0.65rem;
+    }
+    .stat-card-mobile::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #c0001e, #f4a6b8, #455f87);
+      opacity: 0.85;
     }
   </style>
 <style>
@@ -249,15 +245,15 @@
 <div class="self-start inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary-container/30 border border-primary-container/40 text-on-primary-container font-label-sm text-label-sm mb-4">
 <span>🌸 がんばろう</span>
 <span class="w-1 h-1 rounded-full bg-primary"></span>
-<span>Aulas particulares — primeiras turmas</span>
+<span>Aulas online — individuais ou em grupo</span>
 </div>
 <!-- Main Headline -->
 <h1 class="font-headline-lg-mobile text-headline-lg-mobile text-secondary font-extrabold tracking-tight mb-3">
-        Aulas particulares de japonês com quem vive no Japão há mais de 20 anos
+        Aulas de japonês com quem vive no Japão há mais de 20 anos
       </h1>
 <!-- Subtitle -->
 <p class="font-body-md text-body-md text-on-surface-variant mb-4 leading-relaxed">
-        Cresci estudando no Japão e quero compartilhar o idioma e a cultura com você de forma <strong class="font-bold text-secondary">leve e prática</strong>. As aulas são adaptadas ao seu nível, objetivos e interesses — conversação, dia a dia, anime, exercícios e, se for seu plano, Working Holiday e trabalho.
+        Cresci estudando no Japão e quero compartilhar o idioma e a cultura com você de forma <strong class="font-bold text-secondary">leve e prática</strong>. Estude <strong>em aula individual</strong> ou <strong>em grupo pequeno</strong> — sempre adaptado ao seu nível, objetivos e interesses (conversação, dia a dia, anime, Working Holiday e trabalho).
       </p>
 <div class="mb-6 p-4 rounded-lg border border-tertiary/30 bg-tertiary-fixed/20">
 <p class="font-label-sm text-label-sm uppercase tracking-wider text-tertiary font-bold mb-1">Condição de lançamento</p>
@@ -494,7 +490,7 @@
           </div>
 <h3 class="font-title-lg text-title-lg font-bold text-on-surface">Aulas Semanais + Suporte WhatsApp</h3>
 <p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
-            Encontros individuais ao vivo via Google Meet e canal direto no WhatsApp da Sensei para tirar dúvidas de áudio e correções durante a semana.
+            Encontros ao vivo via Google Meet — <strong>individuais ou em grupo pequeno</strong> — e canal direto no WhatsApp da Sensei para dúvidas e correções durante a semana.
           </p>
 </div>
 </div>
@@ -530,36 +526,36 @@
           <strong>Cresci estudando no Japão</strong> e moro aqui há mais de 20 anos. Quero compartilhar idioma e cultura com brasileiros — com a empatia de quem já travou na hora de falar e aprendeu na prática.
         </p>
 <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-3">
-          As aulas são <strong class="text-secondary font-semibold">adaptadas a você</strong>: conversação, exercícios, situações do dia a dia e, quando ajuda, anime e cultura japonesa.
+          As aulas são <strong class="text-secondary font-semibold">adaptadas a você</strong>, em formato individual ou em grupo: conversação, exercícios, dia a dia e, quando ajuda, anime e cultura japonesa.
         </p>
 <p class="font-body-sm text-body-sm text-on-surface-variant/90 italic mb-5">
           Também no Facebook como <strong>Miuky Serrano</strong>. Aqui, o contato mais fácil é o botão verde do WhatsApp — não precisa DM.
         </p>
 <!-- Stats Grid -->
 <div class="grid grid-cols-3 gap-2 pt-4 border-t border-outline-variant/20 text-center">
-<div class="stat-cred-card">
-<div class="cred-seal cred-seal--japan" title="Mais de 20 anos no Japão">
-<span class="cred-seal-icon" aria-hidden="true"><span class="material-symbols-outlined">public</span></span>
-<span class="cred-seal-tag cred-seal-tag--navy">Japão</span>
-<span class="cred-seal-level">20+</span>
+<div class="p-2 rounded-lg bg-surface-container-lowest border border-primary-container/60 stat-card-mobile ambient-shadow">
+<div class="stat-seal" title="Mais de 20 anos no Japão">
+<span class="stat-seal-icon" aria-hidden="true"><span class="material-symbols-outlined">home_pin</span></span>
+<span class="stat-seal-tag">Japão</span>
+<span class="stat-seal-level">20+</span>
 </div>
-<span class="font-label-sm text-[10px] text-on-surface-variant font-bold leading-tight block">Mais de 20 anos no Japão</span>
+<span class="font-label-sm text-[10px] text-on-surface-variant font-bold leading-tight block">20+ anos no Japão</span>
 </div>
-<div class="stat-cred-card">
-<div class="cred-seal" title="Certificação JLPT N2">
-<span class="cred-seal-icon cred-seal-icon--tertiary" aria-hidden="true"><span class="material-symbols-outlined">verified</span></span>
-<span class="cred-seal-tag">JLPT</span>
-<span class="cred-seal-level">N2</span>
+<div class="p-2 rounded-lg bg-surface-container-lowest border border-primary-container/60 stat-card-mobile ambient-shadow">
+<div class="stat-seal" title="Certificação JLPT N2">
+<span class="stat-seal-icon" aria-hidden="true"><span class="material-symbols-outlined">verified</span></span>
+<span class="stat-seal-tag">JLPT</span>
+<span class="stat-seal-level">N2</span>
 </div>
 <span class="font-label-sm text-[10px] text-on-surface-variant font-bold leading-tight block">Certificado JLPT N2</span>
 </div>
-<div class="stat-cred-card">
-<div class="cred-seal cred-seal--solo" title="Aulas individuais">
-<span class="cred-seal-icon cred-seal-icon--primary" aria-hidden="true"><span class="material-symbols-outlined">person</span></span>
-<span class="cred-seal-tag cred-seal-tag--wine">1-on-1</span>
-<span class="cred-seal-level">100%</span>
+<div class="p-2 rounded-lg bg-surface-container-lowest border border-primary-container/60 stat-card-mobile ambient-shadow">
+<div class="stat-seal" title="Aulas individuais ou em grupo">
+<span class="stat-seal-icon" aria-hidden="true"><span class="material-symbols-outlined">groups</span></span>
+<span class="stat-seal-tag">Aulas</span>
+<span class="stat-seal-level stat-seal-level--compact">1:1</span>
 </div>
-<span class="font-label-sm text-[10px] text-on-surface-variant font-bold leading-tight block">Aulas individuais</span>
+<span class="font-label-sm text-[10px] text-on-surface-variant font-bold leading-tight block">Individual ou grupo</span>
 </div>
 </div>
 </div>
@@ -600,7 +596,7 @@
 <span class="material-symbols-outlined text-primary transition-transform duration-200">expand_more</span>
 </button>
 <div class="faq-content px-4 pb-4 hidden font-body-sm text-body-sm text-on-surface-variant">
-            As aulas são 100% online, ao vivo e individuais via Google Meet. Como a Sensei reside no Japão (+12h fuso), temos opções de horários flexíveis de manhã ou à noite no Brasil que se ajustam perfeitamente à sua rotina.
+            As aulas são 100% online e ao vivo via Google Meet — <strong>individuais ou em grupo pequeno</strong>. Como a Sensei reside no Japão (+12h fuso), há horários flexíveis de manhã ou à noite no Brasil.
           </div>
 </div>
 <!-- FAQ 4 -->
@@ -640,10 +636,6 @@
 <span class="material-symbols-outlined text-[24px]">chat</span>
 <span>Falar com Miuky Sensei no WhatsApp</span>
 </a>
-<span class="mt-3 font-body-sm text-[12px] text-on-surface-variant flex items-center gap-1.5">
-<span class="w-2 h-2 rounded-full bg-[#25D366] inline-block animate-pulse"></span>
-        Resposta em português pelo WhatsApp — toque no botão verde
-      </span>
 </section>
 <!-- 9. Footer Mobile -->
 <footer class="px-margin-mobile py-6 bg-surface-container border-t border-outline-variant/30 text-center flex flex-col items-center">
