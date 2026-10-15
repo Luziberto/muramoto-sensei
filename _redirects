@@ -1,2 +1,1 @@
-# Redirects relativos apenas (Workers + assets).
-# www → apex: configure em Cloudflare → Rules → Redirect Rules (ou DNS + CNAME).
+/mobile.html / 301

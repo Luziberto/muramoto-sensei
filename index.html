@@ -2,35 +2,6 @@
 
 <html class="scroll-smooth" lang="pt-BR"><head>
 <meta charset="utf-8"/>
-<script>
-(function () {
-  var params = new URLSearchParams(window.location.search);
-  if (params.has('desktop')) {
-    try { sessionStorage.setItem('nihongo-prefer-desktop', '1'); } catch (e) {}
-    document.cookie = 'nihongo-prefer-desktop=1; path=/; max-age=2592000; samesite=lax';
-    return;
-  }
-  if (params.has('mobile')) {
-    try { sessionStorage.removeItem('nihongo-prefer-desktop'); } catch (e) {}
-    document.cookie = 'nihongo-prefer-desktop=; path=/; max-age=0; samesite=lax';
-  }
-  var preferDesktop = params.has('desktop');
-  if (!preferDesktop) {
-    try { preferDesktop = sessionStorage.getItem('nihongo-prefer-desktop') === '1'; } catch (e) {}
-  }
-  if (!preferDesktop && document.cookie.indexOf('nihongo-prefer-desktop=1') !== -1) {
-    preferDesktop = true;
-  }
-  if (preferDesktop) return;
-  var mq = window.matchMedia('(max-width: 767px)');
-  if (mq.matches) {
-    var target = '/mobile.html';
-    var q = params.toString();
-    if (q) target += '?' + q;
-    window.location.replace(target);
-  }
-})();
-</script>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <meta name="description" content="Aulas de japonês online com Miuky Muramoto — individuais ou em grupo, há mais de 20 anos no Japão. Nível e objetivos sob medida. Condição de lançamento."/>
 <meta property="og:title" content="Aulas de japonês online — individuais ou em grupo — Miuky Muramoto"/>
@@ -257,14 +228,24 @@
       font-size: 1rem;
       font-variation-settings: "FILL" 1, "wght" 600, "GRAD" 0, "opsz" 20;
     }
+    #site-nav .site-drawer-panel {
+      transform: translateX(-105%);
+      transition: transform 0.32s cubic-bezier(0.32, 0.72, 0, 1);
+    }
+    #site-nav.is-open .site-drawer-panel { transform: translateX(0); }
+    #site-nav .site-drawer-backdrop { opacity: 0; transition: opacity 0.28s ease; }
+    #site-nav.is-open .site-drawer-backdrop { opacity: 1; }
   </style>
 </head>
 <body class="bg-surface text-on-surface font-body-md text-body-md antialiased selection:bg-primary-container selection:text-on-primary-container pb-24 md:pb-0">
 <!-- 1. STICKY TOP APP BAR (Shared Components JSON Anchor) -->
 <header class="bg-surface/90 backdrop-blur-md sticky top-0 z-50 border-b border-outline-variant/40 shadow-sm">
 <div class="flex justify-between items-center w-full px-space-lg max-w-7xl mx-auto py-space-sm">
-<!-- Brand Logo / Identity -->
-<a class="flex items-center gap-space-xs group" href="#">
+<div class="flex items-center gap-2 min-w-0">
+<button aria-controls="site-nav" aria-expanded="false" aria-label="Abrir menu" class="md:hidden w-10 h-10 shrink-0 flex items-center justify-center rounded-full border border-outline-variant/30 text-on-surface hover:bg-primary-container/20" id="btn-open-site-nav" type="button">
+<span class="material-symbols-outlined text-[24px]">menu</span>
+</button>
+<a class="flex items-center gap-space-xs group min-w-0" href="#">
 <span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-primary-container text-on-primary-container text-sm font-bold shadow-xs group-hover:scale-105 transition-transform">
           🌸
         </span>
@@ -275,6 +256,7 @@
           にほんご • Miuky
         </span>
 </a>
+</div>
 <!-- Desktop Navigation links -->
 <nav class="hidden md:flex items-center gap-space-lg">
 <a class="text-primary font-bold border-b-2 border-primary pb-1 transition-colors" href="#para-quem-e">Para quem é</a>
@@ -300,7 +282,29 @@
 <div class="absolute -top-12 -left-12 w-96 h-96 bg-primary-container/20 rounded-full blur-3xl pointer-events-none"></div>
 <div class="absolute top-1/2 -right-24 w-80 h-80 bg-secondary-fixed/30 rounded-full blur-3xl pointer-events-none"></div>
 <div class="max-w-7xl mx-auto px-space-lg relative z-10">
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
+<div class="lg:hidden flex flex-col items-center text-center">
+<div class="relative mb-4">
+<div aria-hidden="true" class="absolute -inset-2 rounded-full bg-gradient-to-br from-primary-container/45 via-tertiary-fixed/25 to-secondary-container/35 blur-lg"></div>
+<img alt="Miuky Muramoto, professora de japonês" class="relative w-48 h-48 rounded-full object-cover object-[center_22%] border-4 border-surface-container-lowest ring-2 ring-primary-container/75 sakura-shadow" src="images/hero.png"/>
+<span class="absolute bottom-1 right-1 text-sm px-1.5 py-1 bg-surface-container-lowest/95 rounded-full border border-outline-variant/40">🇧🇷🇯🇵</span>
+</div>
+<p class="font-title-lg text-title-lg font-bold text-on-surface">Miuky Muramoto</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 mb-4">Sensei • há mais de 20 anos no Japão</p>
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-container/30 border border-primary-container/60 text-secondary mb-3">
+<span>🌸</span>
+<span class="font-label-sm text-label-sm">Individual ou em grupo</span>
+</div>
+<h1 class="font-display-mobile text-display-mobile text-secondary tracking-tight leading-tight mb-2">Japonês online, <span class="text-primary">leve e prático</span></h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4 max-w-sm">Aulas ao vivo no seu nível — conversação, dia a dia, anime ou planos de trabalho e Working Holiday.</p>
+<div class="w-full flex flex-col gap-3">
+<a class="inline-flex items-center justify-center gap-3 bg-[#25D366] text-white font-label-lg text-label-lg px-6 py-3.5 rounded-full shadow-lg" href="https://wa.me/817016252129?text=Ol%C3%A1%2C%20Miuky%21%20Vi%20o%20site%20e%20tenho%20interesse%20nas%20aulas%20de%20japon%C3%AAs.%20Pode%20me%20contar%20mais%3F" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">chat</span>
+<span>Falar no WhatsApp</span>
+</a>
+<a class="inline-flex items-center justify-center gap-2 border-2 border-secondary text-secondary font-label-md text-label-md px-6 py-3 rounded-full" href="#como-funciona">Agendar 1ª conversa</a>
+</div>
+</div>
+<div class="hidden lg:grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
 <!-- Left Column -->
 <div class="lg:col-span-7 flex flex-col items-start gap-space-md">
 <!-- Cute Badge -->
@@ -942,5 +946,57 @@
 <span class="font-label-sm text-label-sm font-bold">WhatsApp</span>
 </a>
 </nav>
+
+<div aria-hidden="true" class="fixed inset-0 z-[60] pointer-events-none md:hidden" id="site-nav">
+<div class="site-drawer-backdrop absolute inset-0 bg-secondary/45 backdrop-blur-[3px]" data-close-nav></div>
+<aside aria-label="Navegação" class="site-drawer-panel absolute top-0 left-0 flex h-full w-[min(100%,21.5rem)] max-w-[92vw] flex-col bg-surface-container-lowest border-r border-outline-variant/40 overflow-hidden">
+<div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-tertiary via-primary-container to-secondary"></div>
+<header class="flex items-center justify-between gap-3 px-5 pt-5 pb-4 border-b border-outline-variant/25">
+<div class="flex items-center gap-2.5">
+<span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-primary-container/35">🌸</span>
+<p class="font-title-lg text-[15px] font-bold text-secondary">にほんご • Miuky</p>
+</div>
+<button aria-label="Fechar menu" class="h-10 w-10 rounded-full border border-outline-variant/35" data-close-nav type="button"><span class="material-symbols-outlined">close</span></button>
+</header>
+<nav class="flex-1 overflow-y-auto px-4 py-4 flex flex-col gap-2.5">
+<a class="flex items-center gap-3 rounded-lg border border-outline-variant/30 bg-surface-container/50 p-3" data-close-nav href="#para-quem-e"><span class="font-title-lg text-[15px] font-bold text-secondary">Para quem é</span></a>
+<a class="flex items-center gap-3 rounded-lg border border-outline-variant/30 bg-surface-container/50 p-3" data-close-nav href="#o-que-estudamos"><span class="font-title-lg text-[15px] font-bold text-secondary">O que estudamos</span></a>
+<a class="flex items-center gap-3 rounded-lg border border-outline-variant/30 bg-surface-container/50 p-3" data-close-nav href="#como-funciona"><span class="font-title-lg text-[15px] font-bold text-secondary">Como funciona</span></a>
+<a class="flex items-center gap-3 rounded-lg border border-outline-variant/30 bg-surface-container/50 p-3" data-close-nav href="#sobre-a-sensei"><span class="font-title-lg text-[15px] font-bold text-secondary">Sobre a Sensei</span></a>
+<a class="flex items-center gap-3 rounded-lg border border-outline-variant/30 bg-surface-container/50 p-3" data-close-nav href="#duvidas"><span class="font-title-lg text-[15px] font-bold text-secondary">Dúvidas</span></a>
+</nav>
+<div class="border-t border-outline-variant/25 px-4 py-4">
+<a class="flex w-full items-center justify-center gap-2 rounded-full bg-[#25D366] py-3.5 text-white font-label-md" data-close-nav href="https://wa.me/817016252129?text=Ol%C3%A1%2C%20Miuky%21%20Vi%20o%20site%20e%20tenho%20interesse%20nas%20aulas%20de%20japon%C3%AAs.%20Pode%20me%20contar%20mais%3F" rel="noopener noreferrer" target="_blank">Falar no WhatsApp</a>
+</div>
+</aside>
+</div>
+<script>
+(function () {
+  var nav = document.getElementById('site-nav');
+  var openBtn = document.getElementById('btn-open-site-nav');
+  if (!nav || !openBtn) return;
+  function openMenu() {
+    nav.classList.add('is-open');
+    nav.classList.remove('pointer-events-none');
+    nav.setAttribute('aria-hidden', 'false');
+    openBtn.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMenu() {
+    nav.classList.remove('is-open');
+    nav.classList.add('pointer-events-none');
+    nav.setAttribute('aria-hidden', 'true');
+    openBtn.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+  openBtn.addEventListener('click', openMenu);
+  document.querySelectorAll('[data-close-nav]').forEach(function (el) {
+    el.addEventListener('click', closeMenu);
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeMenu();
+  });
+})();
+</script>
 
 </body></html>

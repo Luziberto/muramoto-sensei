@@ -11,7 +11,7 @@ const copy = (from, to = from) => {
   cpSync(join(root, from), join(out, to), { recursive: true });
 };
 
-for (const file of ['index.html', 'mobile.html', '_redirects', '_headers']) {
+for (const file of ['index.html', '_redirects', '_headers']) {
   copy(file);
 }
 
